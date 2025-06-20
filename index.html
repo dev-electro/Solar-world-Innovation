@@ -1,546 +1,508 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
-<html>
+<!DOCTYPE html>
+<html lang="en">
 <head>
-  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-  <meta http-equiv="Content-Style-Type" content="text/css">
-  <title></title>
-  <meta name="Generator" content="Cocoa HTML Writer">
-  <meta name="CocoaVersion" content="2575.6">
-  <style type="text/css">
-    p.p1 {margin: 0.0px 0.0px 0.0px 0.0px; font: 14.0px Menlo; color: #6d6d6d; -webkit-text-stroke: #6d6d6d}
-    p.p2 {margin: 0.0px 0.0px 0.0px 0.0px; font: 14.0px Menlo; color: #6b0001; -webkit-text-stroke: #6b0001}
-    p.p3 {margin: 0.0px 0.0px 0.0px 0.0px; font: 14.0px Menlo; color: #fb0007; -webkit-text-stroke: #fb0007}
-    p.p4 {margin: 0.0px 0.0px 0.0px 0.0px; font: 14.0px Menlo; color: #0000ff; -webkit-text-stroke: #0000ff}
-    p.p5 {margin: 0.0px 0.0px 0.0px 0.0px; font: 14.0px Menlo; -webkit-text-stroke: #000000}
-    p.p6 {margin: 0.0px 0.0px 0.0px 0.0px; font: 14.0px Menlo; color: #4d5055; -webkit-text-stroke: #4d5055}
-    p.p7 {margin: 0.0px 0.0px 0.0px 0.0px; font: 14.0px Menlo; color: #093c94; -webkit-text-stroke: #093c94}
-    p.p8 {margin: 0.0px 0.0px 0.0px 0.0px; font: 14.0px Menlo; -webkit-text-stroke: #000000; min-height: 16.0px}
-    p.p9 {margin: 0.0px 0.0px 0.0px 0.0px; font: 14.0px Menlo; color: #18702b; -webkit-text-stroke: #18702b}
-    span.s1 {font-kerning: none; background-color: #ecf1f7}
-    span.s2 {font-kerning: none; color: #fb0007; background-color: #ecf1f7; -webkit-text-stroke: 0px #fb0007}
-    span.s3 {font-kerning: none; color: #2a2a2a; background-color: #ecf1f7; -webkit-text-stroke: 0px #2a2a2a}
-    span.s4 {font-kerning: none; color: #000000; background-color: #ecf1f7; -webkit-text-stroke: 0px #000000}
-    span.s5 {font-kerning: none; color: #0000ff; background-color: #ecf1f7; -webkit-text-stroke: 0px #0000ff}
-    span.s6 {font-kerning: none; color: #6b0001; background-color: #ecf1f7; -webkit-text-stroke: 0px #6b0001}
-    span.s7 {font-kerning: none; color: #18702b; background-color: #ecf1f7; -webkit-text-stroke: 0px #18702b}
-    span.s8 {font-kerning: none; color: #093c94; background-color: #ecf1f7; -webkit-text-stroke: 0px #093c94}
-    span.s9 {font-kerning: none; color: #137646; background-color: #ecf1f7; -webkit-text-stroke: 0px #137646}
-    span.s10 {font-kerning: none}
-    span.s11 {font-kerning: none; color: #6f0ec3; background-color: #ecf1f7; -webkit-text-stroke: 0px #6f0ec3}
-    span.s12 {font-kerning: none; color: #0e6e6d; background-color: #ecf1f7; -webkit-text-stroke: 0px #0e6e6d}
-    span.s13 {font-kerning: none; color: #4d5055; background-color: #ecf1f7; -webkit-text-stroke: 0px #4d5055}
-    span.s14 {font-kerning: none; color: #a4450b; background-color: #ecf1f7; -webkit-text-stroke: 0px #a4450b}
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Solar Plant Viability Calculator</title>
+    <!-- Tailwind CSS for styling -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Google Fonts: Inter -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        body { font-family: 'Inter', sans-serif; }
+        input[type="range"]::-webkit-slider-thumb {
+            -webkit-appearance: none;
+            appearance: none;
+            width: 20px;
+            height: 20px;
+            background: #2563eb;
+            cursor: pointer;
+            border-radius: 50%;
+        }
+        input[type="range"]::-moz-range-thumb {
+            width: 20px;
+            height: 20px;
+            background: #2563eb;
+            cursor: pointer;
+            border-radius: 50%;
+        }
+        .accordion-content {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease-out;
+        }
+    </style>
 </head>
-<body>
-<p class="p1"><span class="s1">&lt;!DOCTYPE</span><span class="s2"> html</span><span class="s1">&gt;</span></p>
-<p class="p2"><span class="s3">&lt;</span><span class="s1">html</span><span class="s4"> </span><span class="s2">lang</span><span class="s3">=</span><span class="s5">"en"</span><span class="s3">&gt;</span></p>
-<p class="p2"><span class="s3">&lt;</span><span class="s1">head</span><span class="s3">&gt;</span></p>
-<p class="p3"><span class="s4"><span class="Apple-converted-space">    </span></span><span class="s3">&lt;</span><span class="s6">meta</span><span class="s4"> </span><span class="s1">charset</span><span class="s3">=</span><span class="s5">"UTF-8"</span><span class="s3">&gt;</span></p>
-<p class="p4"><span class="s4"><span class="Apple-converted-space">    </span></span><span class="s3">&lt;</span><span class="s6">meta</span><span class="s4"> </span><span class="s2">name</span><span class="s3">=</span><span class="s1">"viewport"</span><span class="s4"> </span><span class="s2">content</span><span class="s3">=</span><span class="s1">"width=device-width, initial-scale=1.0"</span><span class="s3">&gt;</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">    </span></span><span class="s3">&lt;</span><span class="s6">title</span><span class="s3">&gt;</span><span class="s1">Solar Plant Viability Calculator</span><span class="s3">&lt;/</span><span class="s6">title</span><span class="s3">&gt;</span></p>
-<p class="p6"><span class="s4"><span class="Apple-converted-space">    </span></span><span class="s1">&lt;!-- Tailwind CSS for styling --&gt;</span></p>
-<p class="p4"><span class="s4"><span class="Apple-converted-space">    </span></span><span class="s3">&lt;</span><span class="s6">script</span><span class="s4"> </span><span class="s2">src</span><span class="s3">=</span><span class="s1">"https://cdn.tailwindcss.com"</span><span class="s3">&gt;&lt;/</span><span class="s6">script</span><span class="s3">&gt;</span></p>
-<p class="p6"><span class="s4"><span class="Apple-converted-space">    </span></span><span class="s1">&lt;!-- Google Fonts: Inter --&gt;</span></p>
-<p class="p4"><span class="s4"><span class="Apple-converted-space">    </span></span><span class="s3">&lt;</span><span class="s6">link</span><span class="s4"> </span><span class="s2">rel</span><span class="s3">=</span><span class="s1">"preconnect"</span><span class="s4"> </span><span class="s2">href</span><span class="s3">=</span><span class="s1">"https://fonts.googleapis.com"</span><span class="s3">&gt;</span></p>
-<p class="p4"><span class="s4"><span class="Apple-converted-space">    </span></span><span class="s3">&lt;</span><span class="s6">link</span><span class="s4"> </span><span class="s2">rel</span><span class="s3">=</span><span class="s1">"preconnect"</span><span class="s4"> </span><span class="s2">href</span><span class="s3">=</span><span class="s1">"https://fonts.gstatic.com"</span><span class="s4"> </span><span class="s2">crossorigin</span><span class="s3">&gt;</span></p>
-<p class="p4"><span class="s4"><span class="Apple-converted-space">    </span></span><span class="s3">&lt;</span><span class="s6">link</span><span class="s4"> </span><span class="s2">href</span><span class="s3">=</span><span class="s1">"https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&amp;display=swap"</span><span class="s4"> </span><span class="s2">rel</span><span class="s3">=</span><span class="s1">"stylesheet"</span><span class="s3">&gt;</span></p>
-<p class="p2"><span class="s4"><span class="Apple-converted-space">    </span></span><span class="s3">&lt;</span><span class="s1">style</span><span class="s3">&gt;</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">        </span></span><span class="s6">body</span><span class="s1"> { </span><span class="s2">font-family:</span><span class="s1"> </span><span class="s7">'Inter'</span><span class="s1">, </span><span class="s8">sans-serif</span><span class="s1">; }</span></p>
-<p class="p2"><span class="s4"><span class="Apple-converted-space">        </span></span><span class="s1">input</span><span class="s4">[</span><span class="s8">type</span><span class="s4">=</span><span class="s7">"range"</span><span class="s4">]</span><span class="s1">::-webkit-slider-thumb</span><span class="s4"> {</span></p>
-<p class="p3"><span class="s4"><span class="Apple-converted-space">            </span></span><span class="s1">-webkit-appearance:</span><span class="s4"> </span><span class="s8">none</span><span class="s4">;</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">            </span></span><span class="s2">appearance:</span><span class="s1"> </span><span class="s8">none</span><span class="s1">;</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">            </span></span><span class="s2">width:</span><span class="s1"> </span><span class="s9">20px</span><span class="s1">;</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">            </span></span><span class="s2">height:</span><span class="s1"> </span><span class="s9">20px</span><span class="s1">;</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">            </span></span><span class="s2">background:</span><span class="s1"> </span><span class="s8">#2563eb</span><span class="s1">;</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">            </span></span><span class="s2">cursor:</span><span class="s1"> </span><span class="s8">pointer</span><span class="s1">;</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">            </span></span><span class="s2">border-radius:</span><span class="s1"> </span><span class="s9">50%</span><span class="s1">;</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">        </span>}</span></p>
-<p class="p2"><span class="s4"><span class="Apple-converted-space">        </span></span><span class="s1">input</span><span class="s4">[</span><span class="s8">type</span><span class="s4">=</span><span class="s7">"range"</span><span class="s4">]</span><span class="s1">::-moz-range-thumb</span><span class="s4"> {</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">            </span></span><span class="s2">width:</span><span class="s1"> </span><span class="s9">20px</span><span class="s1">;</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">            </span></span><span class="s2">height:</span><span class="s1"> </span><span class="s9">20px</span><span class="s1">;</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">            </span></span><span class="s2">background:</span><span class="s1"> </span><span class="s8">#2563eb</span><span class="s1">;</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">            </span></span><span class="s2">cursor:</span><span class="s1"> </span><span class="s8">pointer</span><span class="s1">;</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">            </span></span><span class="s2">border-radius:</span><span class="s1"> </span><span class="s9">50%</span><span class="s1">;</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">        </span>}</span></p>
-<p class="p2"><span class="s4"><span class="Apple-converted-space">        </span></span><span class="s1">.accordion-content</span><span class="s4"> {</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">            </span></span><span class="s2">max-height:</span><span class="s1"> </span><span class="s9">0</span><span class="s1">;</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">            </span></span><span class="s2">overflow:</span><span class="s1"> </span><span class="s8">hidden</span><span class="s1">;</span></p>
-<p class="p7"><span class="s4"><span class="Apple-converted-space">            </span></span><span class="s2">transition:</span><span class="s4"> </span><span class="s1">max-height</span><span class="s4"> </span><span class="s9">0.3s</span><span class="s4"> </span><span class="s1">ease-out</span><span class="s4">;</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">        </span>}</span></p>
-<p class="p2"><span class="s4"><span class="Apple-converted-space">    </span></span><span class="s3">&lt;/</span><span class="s1">style</span><span class="s3">&gt;</span></p>
-<p class="p2"><span class="s3">&lt;/</span><span class="s1">head</span><span class="s3">&gt;</span></p>
-<p class="p4"><span class="s3">&lt;</span><span class="s6">body</span><span class="s4"> </span><span class="s2">class</span><span class="s3">=</span><span class="s1">"bg-slate-100"</span><span class="s3">&gt;</span></p>
-<p class="p4"><span class="s4"><span class="Apple-converted-space">    </span></span><span class="s3">&lt;</span><span class="s6">div</span><span class="s4"> </span><span class="s2">class</span><span class="s3">=</span><span class="s1">"w-full max-w-5xl mx-auto p-4 md:p-8"</span><span class="s3">&gt;</span></p>
-<p class="p4"><span class="s4"><span class="Apple-converted-space">        </span></span><span class="s3">&lt;</span><span class="s6">div</span><span class="s4"> </span><span class="s2">class</span><span class="s3">=</span><span class="s1">"bg-white rounded-2xl shadow-2xl overflow-hidden"</span><span class="s3">&gt;</span></p>
-<p class="p6"><span class="s4"><span class="Apple-converted-space">            </span></span><span class="s1">&lt;!-- Header --&gt;</span></p>
-<p class="p4"><span class="s4"><span class="Apple-converted-space">            </span></span><span class="s3">&lt;</span><span class="s6">div</span><span class="s4"> </span><span class="s2">class</span><span class="s3">=</span><span class="s1">"p-8 bg-gradient-to-br from-blue-600 to-indigo-700 text-white"</span><span class="s3">&gt;</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">                </span></span><span class="s3">&lt;</span><span class="s6">h1</span><span class="s1"> </span><span class="s2">class</span><span class="s3">=</span><span class="s5">"text-3xl md:text-4xl font-bold"</span><span class="s3">&gt;</span><span class="s1">Solar Plant Viability Calculator</span><span class="s3">&lt;/</span><span class="s6">h1</span><span class="s3">&gt;</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">                </span></span><span class="s3">&lt;</span><span class="s6">p</span><span class="s1"> </span><span class="s2">class</span><span class="s3">=</span><span class="s5">"mt-2 text-indigo-200"</span><span class="s3">&gt;</span><span class="s1">A comprehensive tool for project investment analysis.</span><span class="s3">&lt;/</span><span class="s6">p</span><span class="s3">&gt;</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">            </span></span><span class="s3">&lt;/</span><span class="s6">div</span><span class="s3">&gt;</span></p>
-<p class="p8"><span class="s10"></span><br></p>
-<p class="p4"><span class="s4"><span class="Apple-converted-space">            </span></span><span class="s3">&lt;</span><span class="s6">div</span><span class="s4"> </span><span class="s2">class</span><span class="s3">=</span><span class="s1">"p-6 md:p-8 space-y-6"</span><span class="s3">&gt;</span></p>
-<p class="p6"><span class="s4"><span class="Apple-converted-space">                </span></span><span class="s1">&lt;!-- Accordion Items --&gt;</span></p>
-<p class="p6"><span class="s4"><span class="Apple-converted-space">                </span></span><span class="s1">&lt;!-- 1. Cost of Plant --&gt;</span></p>
-<p class="p4"><span class="s4"><span class="Apple-converted-space">                </span></span><span class="s3">&lt;</span><span class="s6">div</span><span class="s4"> </span><span class="s2">class</span><span class="s3">=</span><span class="s1">"border border-slate-200 rounded-xl"</span><span class="s3">&gt;</span></p>
-<p class="p4"><span class="s4"><span class="Apple-converted-space">                    </span></span><span class="s3">&lt;</span><span class="s6">button</span><span class="s4"> </span><span class="s2">class</span><span class="s3">=</span><span class="s1">"accordion-toggle w-full flex justify-between items-center p-5 text-left font-semibold text-lg text-slate-800"</span><span class="s4"> </span><span class="s2">data-target</span><span class="s3">=</span><span class="s1">"#cost-section"</span><span class="s3">&gt;</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">                        </span></span><span class="s3">&lt;</span><span class="s6">span</span><span class="s3">&gt;</span><span class="s1">1. Cost of Plant</span><span class="s3">&lt;/</span><span class="s6">span</span><span class="s3">&gt;</span></p>
-<p class="p4"><span class="s4"><span class="Apple-converted-space">                        </span></span><span class="s3">&lt;</span><span class="s6">svg</span><span class="s4"> </span><span class="s2">class</span><span class="s3">=</span><span class="s1">"w-6 h-6 transform transition-transform"</span><span class="s4"> </span><span class="s2">fill</span><span class="s3">=</span><span class="s1">"none"</span><span class="s4"> </span><span class="s2">stroke</span><span class="s3">=</span><span class="s1">"currentColor"</span><span class="s4"> </span><span class="s2">viewBox</span><span class="s3">=</span><span class="s1">"0 0 24 24"</span><span class="s3">&gt;&lt;</span><span class="s6">path</span><span class="s4"> </span><span class="s2">stroke-linecap</span><span class="s3">=</span><span class="s1">"round"</span><span class="s4"> </span><span class="s2">stroke-linejoin</span><span class="s3">=</span><span class="s1">"round"</span><span class="s4"> </span><span class="s2">stroke-width</span><span class="s3">=</span><span class="s1">"2"</span><span class="s4"> </span><span class="s2">d</span><span class="s3">=</span><span class="s1">"M19 9l-7 7-7-7"</span><span class="s3">&gt;&lt;/</span><span class="s6">path</span><span class="s3">&gt;&lt;/</span><span class="s6">svg</span><span class="s3">&gt;</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">                    </span></span><span class="s3">&lt;/</span><span class="s6">button</span><span class="s3">&gt;</span></p>
-<p class="p4"><span class="s4"><span class="Apple-converted-space">                    </span></span><span class="s3">&lt;</span><span class="s6">div</span><span class="s4"> </span><span class="s2">id</span><span class="s3">=</span><span class="s1">"cost-section"</span><span class="s4"> </span><span class="s2">class</span><span class="s3">=</span><span class="s1">"accordion-content"</span><span class="s3">&gt;</span></p>
-<p class="p4"><span class="s4"><span class="Apple-converted-space">                        </span></span><span class="s3">&lt;</span><span class="s6">div</span><span class="s4"> </span><span class="s2">class</span><span class="s3">=</span><span class="s1">"p-5 border-t border-slate-200 grid grid-cols-1 md:grid-cols-2 gap-x-8 gap-y-6"</span><span class="s3">&gt;</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">                            </span></span><span class="s3">&lt;</span><span class="s6">div</span><span class="s3">&gt;</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">                                </span></span><span class="s3">&lt;</span><span class="s6">label</span><span class="s1"> </span><span class="s2">for</span><span class="s3">=</span><span class="s5">"capacity"</span><span class="s1"> </span><span class="s2">class</span><span class="s3">=</span><span class="s5">"text-sm font-medium text-gray-600"</span><span class="s3">&gt;</span><span class="s1">Total Plant Capacity (KW)</span><span class="s3">&lt;/</span><span class="s6">label</span><span class="s3">&gt;</span></p>
-<p class="p4"><span class="s4"><span class="Apple-converted-space">                                </span></span><span class="s3">&lt;</span><span class="s6">input</span><span class="s4"> </span><span class="s2">type</span><span class="s3">=</span><span class="s1">"number"</span><span class="s4"> </span><span class="s2">id</span><span class="s3">=</span><span class="s1">"capacity"</span><span class="s4"> </span><span class="s2">value</span><span class="s3">=</span><span class="s1">"1000"</span><span class="s4"> </span><span class="s2">class</span><span class="s3">=</span><span class="s1">"mt-1 w-full p-3 rounded-lg border-gray-300 focus:ring-blue-500 focus:border-blue-500 shadow-sm"</span><span class="s3">&gt;</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">                            </span></span><span class="s3">&lt;/</span><span class="s6">div</span><span class="s3">&gt;</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">                            </span></span><span class="s3">&lt;</span><span class="s6">div</span><span class="s3">&gt;</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">                                </span></span><span class="s3">&lt;</span><span class="s6">label</span><span class="s1"> </span><span class="s2">for</span><span class="s3">=</span><span class="s5">"panel_cost"</span><span class="s1"> </span><span class="s2">class</span><span class="s3">=</span><span class="s5">"text-sm font-medium text-gray-600"</span><span class="s3">&gt;</span><span class="s1">Cost of Panels (per Watt)</span><span class="s3">&lt;/</span><span class="s6">label</span><span class="s3">&gt;</span></p>
-<p class="p4"><span class="s4"><span class="Apple-converted-space">                                </span></span><span class="s3">&lt;</span><span class="s6">input</span><span class="s4"> </span><span class="s2">type</span><span class="s3">=</span><span class="s1">"number"</span><span class="s4"> </span><span class="s2">id</span><span class="s3">=</span><span class="s1">"panel_cost"</span><span class="s4"> </span><span class="s2">value</span><span class="s3">=</span><span class="s1">"25"</span><span class="s4"> </span><span class="s2">class</span><span class="s3">=</span><span class="s1">"mt-1 w-full p-3 rounded-lg border-gray-300 focus:ring-blue-500 focus:border-blue-500 shadow-sm"</span><span class="s3">&gt;</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">                            </span></span><span class="s3">&lt;/</span><span class="s6">div</span><span class="s3">&gt;</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">                            </span></span><span class="s3">&lt;</span><span class="s6">div</span><span class="s3">&gt;</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">                                </span></span><span class="s3">&lt;</span><span class="s6">label</span><span class="s1"> </span><span class="s2">for</span><span class="s3">=</span><span class="s5">"discount"</span><span class="s1"> </span><span class="s2">class</span><span class="s3">=</span><span class="s5">"text-sm font-medium text-gray-600"</span><span class="s3">&gt;</span><span class="s1">Total Discount on Panels (₹)</span><span class="s3">&lt;/</span><span class="s6">label</span><span class="s3">&gt;</span></p>
-<p class="p4"><span class="s4"><span class="Apple-converted-space">                                </span></span><span class="s3">&lt;</span><span class="s6">input</span><span class="s4"> </span><span class="s2">type</span><span class="s3">=</span><span class="s1">"number"</span><span class="s4"> </span><span class="s2">id</span><span class="s3">=</span><span class="s1">"discount"</span><span class="s4"> </span><span class="s2">value</span><span class="s3">=</span><span class="s1">"0"</span><span class="s4"> </span><span class="s2">class</span><span class="s3">=</span><span class="s1">"mt-1 w-full p-3 rounded-lg border-gray-300 focus:ring-blue-500 focus:border-blue-500 shadow-sm"</span><span class="s3">&gt;</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">                            </span></span><span class="s3">&lt;/</span><span class="s6">div</span><span class="s3">&gt;</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">                            </span></span><span class="s3">&lt;</span><span class="s6">div</span><span class="s3">&gt;</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">                                </span></span><span class="s3">&lt;</span><span class="s6">label</span><span class="s1"> </span><span class="s2">for</span><span class="s3">=</span><span class="s5">"structure_cost"</span><span class="s1"> </span><span class="s2">class</span><span class="s3">=</span><span class="s5">"text-sm font-medium text-gray-600"</span><span class="s3">&gt;</span><span class="s1">Cost of Structure (if separate) (₹)</span><span class="s3">&lt;/</span><span class="s6">label</span><span class="s3">&gt;</span></p>
-<p class="p4"><span class="s4"><span class="Apple-converted-space">                                </span></span><span class="s3">&lt;</span><span class="s6">input</span><span class="s4"> </span><span class="s2">type</span><span class="s3">=</span><span class="s1">"number"</span><span class="s4"> </span><span class="s2">id</span><span class="s3">=</span><span class="s1">"structure_cost"</span><span class="s4"> </span><span class="s2">value</span><span class="s3">=</span><span class="s1">"0"</span><span class="s4"> </span><span class="s2">class</span><span class="s3">=</span><span class="s1">"mt-1 w-full p-3 rounded-lg border-gray-300 focus:ring-blue-500 focus:border-blue-500 shadow-sm"</span><span class="s3">&gt;</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">                            </span></span><span class="s3">&lt;/</span><span class="s6">div</span><span class="s3">&gt;</span></p>
-<p class="p4"><span class="s4"><span class="Apple-converted-space">                            </span></span><span class="s3">&lt;</span><span class="s6">div</span><span class="s4"> </span><span class="s2">class</span><span class="s3">=</span><span class="s1">"md:col-span-2 mt-4 p-4 bg-slate-50 rounded-lg"</span><span class="s3">&gt;</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">                                </span></span><span class="s3">&lt;</span><span class="s6">h3</span><span class="s1"> </span><span class="s2">class</span><span class="s3">=</span><span class="s5">"font-semibold text-slate-700"</span><span class="s3">&gt;</span><span class="s1">Total Plant Cost:</span><span class="s3">&lt;/</span><span class="s6">h3</span><span class="s3">&gt;</span></p>
-<p class="p4"><span class="s4"><span class="Apple-converted-space">                                </span></span><span class="s3">&lt;</span><span class="s6">p</span><span class="s4"> </span><span class="s2">id</span><span class="s3">=</span><span class="s1">"total_cost"</span><span class="s4"> </span><span class="s2">class</span><span class="s3">=</span><span class="s1">"text-2xl font-bold text-blue-600"</span><span class="s3">&gt;</span><span class="s4">₹0.00</span><span class="s3">&lt;/</span><span class="s6">p</span><span class="s3">&gt;</span></p>
-<p class="p4"><span class="s4"><span class="Apple-converted-space">                                </span></span><span class="s3">&lt;</span><span class="s6">p</span><span class="s4"> </span><span class="s2">id</span><span class="s3">=</span><span class="s1">"total_cost_words"</span><span class="s4"> </span><span class="s2">class</span><span class="s3">=</span><span class="s1">"text-sm text-slate-500 italic"</span><span class="s3">&gt;&lt;/</span><span class="s6">p</span><span class="s3">&gt;</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">                            </span></span><span class="s3">&lt;/</span><span class="s6">div</span><span class="s3">&gt;</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">                        </span></span><span class="s3">&lt;/</span><span class="s6">div</span><span class="s3">&gt;</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">                    </span></span><span class="s3">&lt;/</span><span class="s6">div</span><span class="s3">&gt;</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">                </span></span><span class="s3">&lt;/</span><span class="s6">div</span><span class="s3">&gt;</span></p>
-<p class="p8"><span class="s10"></span><br></p>
-<p class="p6"><span class="s4"><span class="Apple-converted-space">                </span></span><span class="s1">&lt;!-- 2. Cost of Funding --&gt;</span></p>
-<p class="p4"><span class="s4"><span class="Apple-converted-space">                </span></span><span class="s3">&lt;</span><span class="s6">div</span><span class="s4"> </span><span class="s2">class</span><span class="s3">=</span><span class="s1">"border border-slate-200 rounded-xl"</span><span class="s3">&gt;</span></p>
-<p class="p4"><span class="s4"><span class="Apple-converted-space">                    </span></span><span class="s3">&lt;</span><span class="s6">button</span><span class="s4"> </span><span class="s2">class</span><span class="s3">=</span><span class="s1">"accordion-toggle w-full flex justify-between items-center p-5 text-left font-semibold text-lg text-slate-800"</span><span class="s4"> </span><span class="s2">data-target</span><span class="s3">=</span><span class="s1">"#funding-section"</span><span class="s3">&gt;</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">                        </span></span><span class="s3">&lt;</span><span class="s6">span</span><span class="s3">&gt;</span><span class="s1">2. Cost of Funding</span><span class="s3">&lt;/</span><span class="s6">span</span><span class="s3">&gt;</span></p>
-<p class="p4"><span class="s4"><span class="Apple-converted-space">                         </span></span><span class="s3">&lt;</span><span class="s6">svg</span><span class="s4"> </span><span class="s2">class</span><span class="s3">=</span><span class="s1">"w-6 h-6 transform transition-transform"</span><span class="s4"> </span><span class="s2">fill</span><span class="s3">=</span><span class="s1">"none"</span><span class="s4"> </span><span class="s2">stroke</span><span class="s3">=</span><span class="s1">"currentColor"</span><span class="s4"> </span><span class="s2">viewBox</span><span class="s3">=</span><span class="s1">"0 0 24 24"</span><span class="s3">&gt;&lt;</span><span class="s6">path</span><span class="s4"> </span><span class="s2">stroke-linecap</span><span class="s3">=</span><span class="s1">"round"</span><span class="s4"> </span><span class="s2">stroke-linejoin</span><span class="s3">=</span><span class="s1">"round"</span><span class="s4"> </span><span class="s2">stroke-width</span><span class="s3">=</span><span class="s1">"2"</span><span class="s4"> </span><span class="s2">d</span><span class="s3">=</span><span class="s1">"M19 9l-7 7-7-7"</span><span class="s3">&gt;&lt;/</span><span class="s6">path</span><span class="s3">&gt;&lt;/</span><span class="s6">svg</span><span class="s3">&gt;</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">                    </span></span><span class="s3">&lt;/</span><span class="s6">button</span><span class="s3">&gt;</span></p>
-<p class="p4"><span class="s4"><span class="Apple-converted-space">                    </span></span><span class="s3">&lt;</span><span class="s6">div</span><span class="s4"> </span><span class="s2">id</span><span class="s3">=</span><span class="s1">"funding-section"</span><span class="s4"> </span><span class="s2">class</span><span class="s3">=</span><span class="s1">"accordion-content"</span><span class="s3">&gt;</span></p>
-<p class="p4"><span class="s4"><span class="Apple-converted-space">                         </span></span><span class="s3">&lt;</span><span class="s6">div</span><span class="s4"> </span><span class="s2">class</span><span class="s3">=</span><span class="s1">"p-5 border-t border-slate-200 space-y-6"</span><span class="s3">&gt;</span></p>
-<p class="p4"><span class="s4"><span class="Apple-converted-space">                            </span></span><span class="s3">&lt;</span><span class="s6">div</span><span class="s4"> </span><span class="s2">class</span><span class="s3">=</span><span class="s1">"grid grid-cols-1 md:grid-cols-2 gap-x-8 gap-y-6"</span><span class="s3">&gt;</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">                                </span></span><span class="s3">&lt;</span><span class="s6">div</span><span class="s3">&gt;</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">                                    </span></span><span class="s3">&lt;</span><span class="s6">label</span><span class="s1"> </span><span class="s2">for</span><span class="s3">=</span><span class="s5">"self_fund"</span><span class="s1"> </span><span class="s2">class</span><span class="s3">=</span><span class="s5">"text-sm font-medium text-gray-600"</span><span class="s3">&gt;</span><span class="s1">Self Fund (₹)</span><span class="s3">&lt;/</span><span class="s6">label</span><span class="s3">&gt;</span></p>
-<p class="p4"><span class="s4"><span class="Apple-converted-space">                                    </span></span><span class="s3">&lt;</span><span class="s6">input</span><span class="s4"> </span><span class="s2">type</span><span class="s3">=</span><span class="s1">"number"</span><span class="s4"> </span><span class="s2">id</span><span class="s3">=</span><span class="s1">"self_fund"</span><span class="s4"> </span><span class="s2">value</span><span class="s3">=</span><span class="s1">"0"</span><span class="s4"> </span><span class="s2">class</span><span class="s3">=</span><span class="s1">"mt-1 w-full p-3 rounded-lg border-gray-300 focus:ring-blue-500 focus:border-blue-500 shadow-sm"</span><span class="s3">&gt;</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">                                </span></span><span class="s3">&lt;/</span><span class="s6">div</span><span class="s3">&gt;</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">                                </span></span><span class="s3">&lt;</span><span class="s6">div</span><span class="s3">&gt;</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">                                    </span></span><span class="s3">&lt;</span><span class="s6">label</span><span class="s1"> </span><span class="s2">class</span><span class="s3">=</span><span class="s5">"text-sm font-medium text-gray-600"</span><span class="s3">&gt;</span><span class="s1">Total Loan Amount (₹)</span><span class="s3">&lt;/</span><span class="s6">label</span><span class="s3">&gt;</span></p>
-<p class="p4"><span class="s4"><span class="Apple-converted-space">                                    </span></span><span class="s3">&lt;</span><span class="s6">p</span><span class="s4"> </span><span class="s2">id</span><span class="s3">=</span><span class="s1">"loan_amount"</span><span class="s4"> </span><span class="s2">class</span><span class="s3">=</span><span class="s1">"mt-1 w-full p-3 rounded-lg bg-slate-100 text-slate-800 font-medium"</span><span class="s3">&gt;</span><span class="s4">₹0.00</span><span class="s3">&lt;/</span><span class="s6">p</span><span class="s3">&gt;</span></p>
-<p class="p4"><span class="s4"><span class="Apple-converted-space">                                    </span></span><span class="s3">&lt;</span><span class="s6">p</span><span class="s4"> </span><span class="s2">id</span><span class="s3">=</span><span class="s1">"loan_amount_words"</span><span class="s4"> </span><span class="s2">class</span><span class="s3">=</span><span class="s1">"text-sm text-slate-500 italic"</span><span class="s3">&gt;&lt;/</span><span class="s6">p</span><span class="s3">&gt;</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">                                </span></span><span class="s3">&lt;/</span><span class="s6">div</span><span class="s3">&gt;</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">                            </span></span><span class="s3">&lt;/</span><span class="s6">div</span><span class="s3">&gt;</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">                            </span></span><span class="s3">&lt;</span><span class="s6">div</span><span class="s3">&gt;</span></p>
-<p class="p4"><span class="s4"><span class="Apple-converted-space">                                </span></span><span class="s3">&lt;</span><span class="s6">label</span><span class="s4"> </span><span class="s2">for</span><span class="s3">=</span><span class="s1">"interest_rate"</span><span class="s4"> </span><span class="s2">class</span><span class="s3">=</span><span class="s1">"text-sm font-medium text-gray-600"</span><span class="s3">&gt;</span><span class="s4">Interest Rate (% p.a.) - </span><span class="s3">&lt;</span><span class="s6">span</span><span class="s4"> </span><span class="s2">id</span><span class="s3">=</span><span class="s1">"interest_rate_val"</span><span class="s4"> </span><span class="s2">class</span><span class="s3">=</span><span class="s1">"font-bold"</span><span class="s3">&gt;</span><span class="s4">6.0%</span><span class="s3">&lt;/</span><span class="s6">span</span><span class="s3">&gt;&lt;/</span><span class="s6">label</span><span class="s3">&gt;</span></p>
-<p class="p4"><span class="s4"><span class="Apple-converted-space">                                </span></span><span class="s3">&lt;</span><span class="s6">input</span><span class="s4"> </span><span class="s2">type</span><span class="s3">=</span><span class="s1">"range"</span><span class="s4"> </span><span class="s2">id</span><span class="s3">=</span><span class="s1">"interest_rate"</span><span class="s4"> </span><span class="s2">min</span><span class="s3">=</span><span class="s1">"5"</span><span class="s4"> </span><span class="s2">max</span><span class="s3">=</span><span class="s1">"15"</span><span class="s4"> </span><span class="s2">step</span><span class="s3">=</span><span class="s1">"0.1"</span><span class="s4"> </span><span class="s2">value</span><span class="s3">=</span><span class="s1">"6"</span><span class="s4"> </span><span class="s2">class</span><span class="s3">=</span><span class="s1">"mt-1 w-full h-2 bg-gray-200 rounded-lg appearance-none cursor-pointer"</span><span class="s3">&gt;</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">                            </span></span><span class="s3">&lt;/</span><span class="s6">div</span><span class="s3">&gt;</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">                             </span></span><span class="s3">&lt;</span><span class="s6">div</span><span class="s3">&gt;</span></p>
-<p class="p4"><span class="s4"><span class="Apple-converted-space">                                </span></span><span class="s3">&lt;</span><span class="s6">label</span><span class="s4"> </span><span class="s2">for</span><span class="s3">=</span><span class="s1">"loan_tenure"</span><span class="s4"> </span><span class="s2">class</span><span class="s3">=</span><span class="s1">"text-sm font-medium text-gray-600"</span><span class="s3">&gt;</span><span class="s4">Loan Tenure (Years) - </span><span class="s3">&lt;</span><span class="s6">span</span><span class="s4"> </span><span class="s2">id</span><span class="s3">=</span><span class="s1">"loan_tenure_val"</span><span class="s4"> </span><span class="s2">class</span><span class="s3">=</span><span class="s1">"font-bold"</span><span class="s3">&gt;</span><span class="s4">7 Years</span><span class="s3">&lt;/</span><span class="s6">span</span><span class="s3">&gt;&lt;/</span><span class="s6">label</span><span class="s3">&gt;</span></p>
-<p class="p4"><span class="s4"><span class="Apple-converted-space">                                </span></span><span class="s3">&lt;</span><span class="s6">input</span><span class="s4"> </span><span class="s2">type</span><span class="s3">=</span><span class="s1">"range"</span><span class="s4"> </span><span class="s2">id</span><span class="s3">=</span><span class="s1">"loan_tenure"</span><span class="s4"> </span><span class="s2">min</span><span class="s3">=</span><span class="s1">"1"</span><span class="s4"> </span><span class="s2">max</span><span class="s3">=</span><span class="s1">"25"</span><span class="s4"> </span><span class="s2">step</span><span class="s3">=</span><span class="s1">"1"</span><span class="s4"> </span><span class="s2">value</span><span class="s3">=</span><span class="s1">"7"</span><span class="s4"> </span><span class="s2">class</span><span class="s3">=</span><span class="s1">"mt-1 w-full h-2 bg-gray-200 rounded-lg appearance-none cursor-pointer"</span><span class="s3">&gt;</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">                            </span></span><span class="s3">&lt;/</span><span class="s6">div</span><span class="s3">&gt;</span></p>
-<p class="p4"><span class="s4"><span class="Apple-converted-space">                            </span></span><span class="s3">&lt;</span><span class="s6">div</span><span class="s4"> </span><span class="s2">class</span><span class="s3">=</span><span class="s1">"mt-4 p-4 bg-slate-50 rounded-lg"</span><span class="s3">&gt;</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">                                </span></span><span class="s3">&lt;</span><span class="s6">h3</span><span class="s1"> </span><span class="s2">class</span><span class="s3">=</span><span class="s5">"font-semibold text-slate-700"</span><span class="s3">&gt;</span><span class="s1">Monthly EMI on Loan:</span><span class="s3">&lt;/</span><span class="s6">h3</span><span class="s3">&gt;</span></p>
-<p class="p4"><span class="s4"><span class="Apple-converted-space">                                </span></span><span class="s3">&lt;</span><span class="s6">p</span><span class="s4"> </span><span class="s2">id</span><span class="s3">=</span><span class="s1">"monthly_emi"</span><span class="s4"> </span><span class="s2">class</span><span class="s3">=</span><span class="s1">"text-2xl font-bold text-blue-600"</span><span class="s3">&gt;</span><span class="s4">₹0.00</span><span class="s3">&lt;/</span><span class="s6">p</span><span class="s3">&gt;</span></p>
-<p class="p4"><span class="s4"><span class="Apple-converted-space">                                </span></span><span class="s3">&lt;</span><span class="s6">p</span><span class="s4"> </span><span class="s2">id</span><span class="s3">=</span><span class="s1">"monthly_emi_words"</span><span class="s4"> </span><span class="s2">class</span><span class="s3">=</span><span class="s1">"text-sm text-slate-500 italic"</span><span class="s3">&gt;&lt;/</span><span class="s6">p</span><span class="s3">&gt;</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">                            </span></span><span class="s3">&lt;/</span><span class="s6">div</span><span class="s3">&gt;</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">                         </span></span><span class="s3">&lt;/</span><span class="s6">div</span><span class="s3">&gt;</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">                    </span></span><span class="s3">&lt;/</span><span class="s6">div</span><span class="s3">&gt;</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">                </span></span><span class="s3">&lt;/</span><span class="s6">div</span><span class="s3">&gt;</span></p>
-<p class="p8"><span class="s10"></span><br></p>
-<p class="p6"><span class="s4"><span class="Apple-converted-space">                </span></span><span class="s1">&lt;!-- 3. O&amp;M Costs --&gt;</span></p>
-<p class="p4"><span class="s4"><span class="Apple-converted-space">                 </span></span><span class="s3">&lt;</span><span class="s6">div</span><span class="s4"> </span><span class="s2">class</span><span class="s3">=</span><span class="s1">"border border-slate-200 rounded-xl"</span><span class="s3">&gt;</span></p>
-<p class="p4"><span class="s4"><span class="Apple-converted-space">                    </span></span><span class="s3">&lt;</span><span class="s6">button</span><span class="s4"> </span><span class="s2">class</span><span class="s3">=</span><span class="s1">"accordion-toggle w-full flex justify-between items-center p-5 text-left font-semibold text-lg text-slate-800"</span><span class="s4"> </span><span class="s2">data-target</span><span class="s3">=</span><span class="s1">"#om-section"</span><span class="s3">&gt;</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">                        </span></span><span class="s3">&lt;</span><span class="s6">span</span><span class="s3">&gt;</span><span class="s1">3. Operation &amp; Maintenance Costs</span><span class="s3">&lt;/</span><span class="s6">span</span><span class="s3">&gt;</span></p>
-<p class="p4"><span class="s4"><span class="Apple-converted-space">                         </span></span><span class="s3">&lt;</span><span class="s6">svg</span><span class="s4"> </span><span class="s2">class</span><span class="s3">=</span><span class="s1">"w-6 h-6 transform transition-transform"</span><span class="s4"> </span><span class="s2">fill</span><span class="s3">=</span><span class="s1">"none"</span><span class="s4"> </span><span class="s2">stroke</span><span class="s3">=</span><span class="s1">"currentColor"</span><span class="s4"> </span><span class="s2">viewBox</span><span class="s3">=</span><span class="s1">"0 0 24 24"</span><span class="s3">&gt;&lt;</span><span class="s6">path</span><span class="s4"> </span><span class="s2">stroke-linecap</span><span class="s3">=</span><span class="s1">"round"</span><span class="s4"> </span><span class="s2">stroke-linejoin</span><span class="s3">=</span><span class="s1">"round"</span><span class="s4"> </span><span class="s2">stroke-width</span><span class="s3">=</span><span class="s1">"2"</span><span class="s4"> </span><span class="s2">d</span><span class="s3">=</span><span class="s1">"M19 9l-7 7-7-7"</span><span class="s3">&gt;&lt;/</span><span class="s6">path</span><span class="s3">&gt;&lt;/</span><span class="s6">svg</span><span class="s3">&gt;</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">                    </span></span><span class="s3">&lt;/</span><span class="s6">button</span><span class="s3">&gt;</span></p>
-<p class="p4"><span class="s4"><span class="Apple-converted-space">                    </span></span><span class="s3">&lt;</span><span class="s6">div</span><span class="s4"> </span><span class="s2">id</span><span class="s3">=</span><span class="s1">"om-section"</span><span class="s4"> </span><span class="s2">class</span><span class="s3">=</span><span class="s1">"accordion-content"</span><span class="s3">&gt;</span></p>
-<p class="p4"><span class="s4"><span class="Apple-converted-space">                        </span></span><span class="s3">&lt;</span><span class="s6">div</span><span class="s4"> </span><span class="s2">class</span><span class="s3">=</span><span class="s1">"p-5 border-t border-slate-200 grid grid-cols-1 md:grid-cols-2 gap-x-8 gap-y-6"</span><span class="s3">&gt;</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">                            </span></span><span class="s3">&lt;</span><span class="s6">div</span><span class="s3">&gt;</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">                               </span></span><span class="s3">&lt;</span><span class="s6">label</span><span class="s1"> </span><span class="s2">for</span><span class="s3">=</span><span class="s5">"required_land"</span><span class="s1"> </span><span class="s2">class</span><span class="s3">=</span><span class="s5">"text-sm font-medium text-gray-600"</span><span class="s3">&gt;</span><span class="s1">Required Land (Bigha)</span><span class="s3">&lt;/</span><span class="s6">label</span><span class="s3">&gt;</span></p>
-<p class="p4"><span class="s4"><span class="Apple-converted-space">                               </span></span><span class="s3">&lt;</span><span class="s6">input</span><span class="s4"> </span><span class="s2">type</span><span class="s3">=</span><span class="s1">"number"</span><span class="s4"> </span><span class="s2">id</span><span class="s3">=</span><span class="s1">"required_land"</span><span class="s4"> </span><span class="s2">value</span><span class="s3">=</span><span class="s1">"6"</span><span class="s4"> </span><span class="s2">class</span><span class="s3">=</span><span class="s1">"mt-1 w-full p-3 rounded-lg border-gray-300 focus:ring-blue-500 focus:border-blue-500 shadow-sm"</span><span class="s3">&gt;</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">                            </span></span><span class="s3">&lt;/</span><span class="s6">div</span><span class="s3">&gt;</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">                            </span></span><span class="s3">&lt;</span><span class="s6">div</span><span class="s3">&gt;</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">                               </span></span><span class="s3">&lt;</span><span class="s6">label</span><span class="s1"> </span><span class="s2">for</span><span class="s3">=</span><span class="s5">"rental_cost_bigha"</span><span class="s1"> </span><span class="s2">class</span><span class="s3">=</span><span class="s5">"text-sm font-medium text-gray-600"</span><span class="s3">&gt;</span><span class="s1">Rental Cost (per Bigha/month) (₹)</span><span class="s3">&lt;/</span><span class="s6">label</span><span class="s3">&gt;</span></p>
-<p class="p4"><span class="s4"><span class="Apple-converted-space">                               </span></span><span class="s3">&lt;</span><span class="s6">input</span><span class="s4"> </span><span class="s2">type</span><span class="s3">=</span><span class="s1">"number"</span><span class="s4"> </span><span class="s2">id</span><span class="s3">=</span><span class="s1">"rental_cost_bigha"</span><span class="s4"> </span><span class="s2">value</span><span class="s3">=</span><span class="s1">"2000"</span><span class="s4"> </span><span class="s2">class</span><span class="s3">=</span><span class="s1">"mt-1 w-full p-3 rounded-lg border-gray-300 focus:ring-blue-500 focus:border-blue-500 shadow-sm"</span><span class="s3">&gt;</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">                            </span></span><span class="s3">&lt;/</span><span class="s6">div</span><span class="s3">&gt;</span></p>
-<p class="p4"><span class="s4"><span class="Apple-converted-space">                            </span></span><span class="s3">&lt;</span><span class="s6">div</span><span class="s4"> </span><span class="s2">class</span><span class="s3">=</span><span class="s1">"md:col-span-2 p-3 bg-slate-50 rounded-lg"</span><span class="s3">&gt;</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">                                </span></span><span class="s3">&lt;</span><span class="s6">h4</span><span class="s1"> </span><span class="s2">class</span><span class="s3">=</span><span class="s5">"font-medium text-slate-600"</span><span class="s3">&gt;</span><span class="s1">Total Monthly Rental Cost:</span><span class="s3">&lt;/</span><span class="s6">h4</span><span class="s3">&gt;</span></p>
-<p class="p4"><span class="s4"><span class="Apple-converted-space">                                </span></span><span class="s3">&lt;</span><span class="s6">p</span><span class="s4"> </span><span class="s2">id</span><span class="s3">=</span><span class="s1">"total_rental_cost"</span><span class="s4"> </span><span class="s2">class</span><span class="s3">=</span><span class="s1">"font-bold text-slate-800"</span><span class="s3">&gt;</span><span class="s4">₹0.00</span><span class="s3">&lt;/</span><span class="s6">p</span><span class="s3">&gt;</span></p>
-<p class="p4"><span class="s4"><span class="Apple-converted-space">                                </span></span><span class="s3">&lt;</span><span class="s6">p</span><span class="s4"> </span><span class="s2">id</span><span class="s3">=</span><span class="s1">"total_rental_cost_words"</span><span class="s4"> </span><span class="s2">class</span><span class="s3">=</span><span class="s1">"text-xs text-slate-500 italic"</span><span class="s3">&gt;&lt;/</span><span class="s6">p</span><span class="s3">&gt;</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">                            </span></span><span class="s3">&lt;/</span><span class="s6">div</span><span class="s3">&gt;</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">                            </span></span><span class="s3">&lt;</span><span class="s6">div</span><span class="s3">&gt;</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">                                </span></span><span class="s3">&lt;</span><span class="s6">label</span><span class="s1"> </span><span class="s2">for</span><span class="s3">=</span><span class="s5">"security_guards"</span><span class="s1"> </span><span class="s2">class</span><span class="s3">=</span><span class="s5">"text-sm font-medium text-gray-600"</span><span class="s3">&gt;</span><span class="s1">No. of Security Guards</span><span class="s3">&lt;/</span><span class="s6">label</span><span class="s3">&gt;</span></p>
-<p class="p4"><span class="s4"><span class="Apple-converted-space">                                </span></span><span class="s3">&lt;</span><span class="s6">input</span><span class="s4"> </span><span class="s2">type</span><span class="s3">=</span><span class="s1">"number"</span><span class="s4"> </span><span class="s2">id</span><span class="s3">=</span><span class="s1">"security_guards"</span><span class="s4"> </span><span class="s2">value</span><span class="s3">=</span><span class="s1">"3"</span><span class="s4"> </span><span class="s2">class</span><span class="s3">=</span><span class="s1">"mt-1 w-full p-3 rounded-lg border-gray-300 focus:ring-blue-500 focus:border-blue-500 shadow-sm"</span><span class="s3">&gt;</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">                            </span></span><span class="s3">&lt;/</span><span class="s6">div</span><span class="s3">&gt;</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">                             </span></span><span class="s3">&lt;</span><span class="s6">div</span><span class="s3">&gt;</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">                                </span></span><span class="s3">&lt;</span><span class="s6">label</span><span class="s1"> </span><span class="s2">for</span><span class="s3">=</span><span class="s5">"guard_salary"</span><span class="s1"> </span><span class="s2">class</span><span class="s3">=</span><span class="s5">"text-sm font-medium text-gray-600"</span><span class="s3">&gt;</span><span class="s1">Security Guard Salary (monthly) (₹)</span><span class="s3">&lt;/</span><span class="s6">label</span><span class="s3">&gt;</span></p>
-<p class="p4"><span class="s4"><span class="Apple-converted-space">                                </span></span><span class="s3">&lt;</span><span class="s6">input</span><span class="s4"> </span><span class="s2">type</span><span class="s3">=</span><span class="s1">"number"</span><span class="s4"> </span><span class="s2">id</span><span class="s3">=</span><span class="s1">"guard_salary"</span><span class="s4"> </span><span class="s2">value</span><span class="s3">=</span><span class="s1">"15000"</span><span class="s4"> </span><span class="s2">class</span><span class="s3">=</span><span class="s1">"mt-1 w-full p-3 rounded-lg border-gray-300 focus:ring-blue-500 focus:border-blue-500 shadow-sm"</span><span class="s3">&gt;</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">                            </span></span><span class="s3">&lt;/</span><span class="s6">div</span><span class="s3">&gt;</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">                             </span></span><span class="s3">&lt;</span><span class="s6">div</span><span class="s3">&gt;</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">                                </span></span><span class="s3">&lt;</span><span class="s6">label</span><span class="s1"> </span><span class="s2">for</span><span class="s3">=</span><span class="s5">"engineers"</span><span class="s1"> </span><span class="s2">class</span><span class="s3">=</span><span class="s5">"text-sm font-medium text-gray-600"</span><span class="s3">&gt;</span><span class="s1">No. of Engineers</span><span class="s3">&lt;/</span><span class="s6">label</span><span class="s3">&gt;</span></p>
-<p class="p4"><span class="s4"><span class="Apple-converted-space">                                </span></span><span class="s3">&lt;</span><span class="s6">input</span><span class="s4"> </span><span class="s2">type</span><span class="s3">=</span><span class="s1">"number"</span><span class="s4"> </span><span class="s2">id</span><span class="s3">=</span><span class="s1">"engineers"</span><span class="s4"> </span><span class="s2">value</span><span class="s3">=</span><span class="s1">"1"</span><span class="s4"> </span><span class="s2">class</span><span class="s3">=</span><span class="s1">"mt-1 w-full p-3 rounded-lg border-gray-300 focus:ring-blue-500 focus:border-blue-500 shadow-sm"</span><span class="s3">&gt;</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">                            </span></span><span class="s3">&lt;/</span><span class="s6">div</span><span class="s3">&gt;</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">                             </span></span><span class="s3">&lt;</span><span class="s6">div</span><span class="s3">&gt;</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">                                </span></span><span class="s3">&lt;</span><span class="s6">label</span><span class="s1"> </span><span class="s2">for</span><span class="s3">=</span><span class="s5">"engineer_salary"</span><span class="s1"> </span><span class="s2">class</span><span class="s3">=</span><span class="s5">"text-sm font-medium text-gray-600"</span><span class="s3">&gt;</span><span class="s1">Engineer Salary (monthly) (₹)</span><span class="s3">&lt;/</span><span class="s6">label</span><span class="s3">&gt;</span></p>
-<p class="p4"><span class="s4"><span class="Apple-converted-space">                                </span></span><span class="s3">&lt;</span><span class="s6">input</span><span class="s4"> </span><span class="s2">type</span><span class="s3">=</span><span class="s1">"number"</span><span class="s4"> </span><span class="s2">id</span><span class="s3">=</span><span class="s1">"engineer_salary"</span><span class="s4"> </span><span class="s2">value</span><span class="s3">=</span><span class="s1">"15000"</span><span class="s4"> </span><span class="s2">class</span><span class="s3">=</span><span class="s1">"mt-1 w-full p-3 rounded-lg border-gray-300 focus:ring-blue-500 focus:border-blue-500 shadow-sm"</span><span class="s3">&gt;</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">                            </span></span><span class="s3">&lt;/</span><span class="s6">div</span><span class="s3">&gt;</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">                             </span></span><span class="s3">&lt;</span><span class="s6">div</span><span class="s3">&gt;</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">                                </span></span><span class="s3">&lt;</span><span class="s6">label</span><span class="s1"> </span><span class="s2">for</span><span class="s3">=</span><span class="s5">"misc_cost"</span><span class="s1"> </span><span class="s2">class</span><span class="s3">=</span><span class="s5">"text-sm font-medium text-gray-600"</span><span class="s3">&gt;</span><span class="s1">Other Miscellaneous Cost (monthly) (₹)</span><span class="s3">&lt;/</span><span class="s6">label</span><span class="s3">&gt;</span></p>
-<p class="p4"><span class="s4"><span class="Apple-converted-space">                                </span></span><span class="s3">&lt;</span><span class="s6">input</span><span class="s4"> </span><span class="s2">type</span><span class="s3">=</span><span class="s1">"number"</span><span class="s4"> </span><span class="s2">id</span><span class="s3">=</span><span class="s1">"misc_cost"</span><span class="s4"> </span><span class="s2">value</span><span class="s3">=</span><span class="s1">"28000"</span><span class="s4"> </span><span class="s2">class</span><span class="s3">=</span><span class="s1">"mt-1 w-full p-3 rounded-lg border-gray-300 focus:ring-blue-500 focus:border-blue-500 shadow-sm"</span><span class="s3">&gt;</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">                            </span></span><span class="s3">&lt;/</span><span class="s6">div</span><span class="s3">&gt;</span></p>
-<p class="p4"><span class="s4"><span class="Apple-converted-space">                            </span></span><span class="s3">&lt;</span><span class="s6">div</span><span class="s4"> </span><span class="s2">class</span><span class="s3">=</span><span class="s1">"md:col-span-2 mt-4 p-4 bg-blue-50 rounded-lg"</span><span class="s3">&gt;</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">                                </span></span><span class="s3">&lt;</span><span class="s6">h3</span><span class="s1"> </span><span class="s2">class</span><span class="s3">=</span><span class="s5">"font-semibold text-blue-800"</span><span class="s3">&gt;</span><span class="s1">Total Monthly O&amp;M Cost:</span><span class="s3">&lt;/</span><span class="s6">h3</span><span class="s3">&gt;</span></p>
-<p class="p4"><span class="s4"><span class="Apple-converted-space">                                </span></span><span class="s3">&lt;</span><span class="s6">p</span><span class="s4"> </span><span class="s2">id</span><span class="s3">=</span><span class="s1">"om_cost"</span><span class="s4"> </span><span class="s2">class</span><span class="s3">=</span><span class="s1">"text-2xl font-bold text-blue-700"</span><span class="s3">&gt;</span><span class="s4">₹0.00</span><span class="s3">&lt;/</span><span class="s6">p</span><span class="s3">&gt;</span></p>
-<p class="p4"><span class="s4"><span class="Apple-converted-space">                                </span></span><span class="s3">&lt;</span><span class="s6">p</span><span class="s4"> </span><span class="s2">id</span><span class="s3">=</span><span class="s1">"om_cost_words"</span><span class="s4"> </span><span class="s2">class</span><span class="s3">=</span><span class="s1">"text-sm text-blue-600 italic"</span><span class="s3">&gt;&lt;/</span><span class="s6">p</span><span class="s3">&gt;</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">                            </span></span><span class="s3">&lt;/</span><span class="s6">div</span><span class="s3">&gt;</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">                        </span></span><span class="s3">&lt;/</span><span class="s6">div</span><span class="s3">&gt;</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">                    </span></span><span class="s3">&lt;/</span><span class="s6">div</span><span class="s3">&gt;</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">                </span></span><span class="s3">&lt;/</span><span class="s6">div</span><span class="s3">&gt;</span></p>
-<p class="p8"><span class="s10"></span><br></p>
-<p class="p6"><span class="s4"><span class="Apple-converted-space">                </span></span><span class="s1">&lt;!-- 4. Generation &amp; Income --&gt;</span></p>
-<p class="p4"><span class="s4"><span class="Apple-converted-space">                </span></span><span class="s3">&lt;</span><span class="s6">div</span><span class="s4"> </span><span class="s2">class</span><span class="s3">=</span><span class="s1">"border border-slate-200 rounded-xl"</span><span class="s3">&gt;</span></p>
-<p class="p4"><span class="s4"><span class="Apple-converted-space">                     </span></span><span class="s3">&lt;</span><span class="s6">button</span><span class="s4"> </span><span class="s2">class</span><span class="s3">=</span><span class="s1">"accordion-toggle w-full flex justify-between items-center p-5 text-left font-semibold text-lg text-slate-800"</span><span class="s4"> </span><span class="s2">data-target</span><span class="s3">=</span><span class="s1">"#income-section"</span><span class="s3">&gt;</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">                        </span></span><span class="s3">&lt;</span><span class="s6">span</span><span class="s3">&gt;</span><span class="s1">4. Generation &amp; Income</span><span class="s3">&lt;/</span><span class="s6">span</span><span class="s3">&gt;</span></p>
-<p class="p4"><span class="s4"><span class="Apple-converted-space">                         </span></span><span class="s3">&lt;</span><span class="s6">svg</span><span class="s4"> </span><span class="s2">class</span><span class="s3">=</span><span class="s1">"w-6 h-6 transform transition-transform"</span><span class="s4"> </span><span class="s2">fill</span><span class="s3">=</span><span class="s1">"none"</span><span class="s4"> </span><span class="s2">stroke</span><span class="s3">=</span><span class="s1">"currentColor"</span><span class="s4"> </span><span class="s2">viewBox</span><span class="s3">=</span><span class="s1">"0 0 24 24"</span><span class="s3">&gt;&lt;</span><span class="s6">path</span><span class="s4"> </span><span class="s2">stroke-linecap</span><span class="s3">=</span><span class="s1">"round"</span><span class="s4"> </span><span class="s2">stroke-linejoin</span><span class="s3">=</span><span class="s1">"round"</span><span class="s4"> </span><span class="s2">stroke-width</span><span class="s3">=</span><span class="s1">"2"</span><span class="s4"> </span><span class="s2">d</span><span class="s3">=</span><span class="s1">"M19 9l-7 7-7-7"</span><span class="s3">&gt;&lt;/</span><span class="s6">path</span><span class="s3">&gt;&lt;/</span><span class="s6">svg</span><span class="s3">&gt;</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">                    </span></span><span class="s3">&lt;/</span><span class="s6">button</span><span class="s3">&gt;</span></p>
-<p class="p4"><span class="s4"><span class="Apple-converted-space">                    </span></span><span class="s3">&lt;</span><span class="s6">div</span><span class="s4"> </span><span class="s2">id</span><span class="s3">=</span><span class="s1">"income-section"</span><span class="s4"> </span><span class="s2">class</span><span class="s3">=</span><span class="s1">"accordion-content"</span><span class="s3">&gt;</span></p>
-<p class="p4"><span class="s4"><span class="Apple-converted-space">                        </span></span><span class="s3">&lt;</span><span class="s6">div</span><span class="s4"> </span><span class="s2">class</span><span class="s3">=</span><span class="s1">"p-5 border-t border-slate-200 grid grid-cols-1 md:grid-cols-2 gap-x-8 gap-y-6"</span><span class="s3">&gt;</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">                            </span></span><span class="s3">&lt;</span><span class="s6">div</span><span class="s3">&gt;</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">                                </span></span><span class="s3">&lt;</span><span class="s6">label</span><span class="s1"> </span><span class="s2">for</span><span class="s3">=</span><span class="s5">"generation"</span><span class="s1"> </span><span class="s2">class</span><span class="s3">=</span><span class="s5">"text-sm font-medium text-gray-600"</span><span class="s3">&gt;</span><span class="s1">Generation (units per KW per day)</span><span class="s3">&lt;/</span><span class="s6">label</span><span class="s3">&gt;</span></p>
-<p class="p4"><span class="s4"><span class="Apple-converted-space">                                </span></span><span class="s3">&lt;</span><span class="s6">input</span><span class="s4"> </span><span class="s2">type</span><span class="s3">=</span><span class="s1">"number"</span><span class="s4"> </span><span class="s2">id</span><span class="s3">=</span><span class="s1">"generation"</span><span class="s4"> </span><span class="s2">value</span><span class="s3">=</span><span class="s1">"4.5"</span><span class="s4"> </span><span class="s2">step</span><span class="s3">=</span><span class="s1">"0.1"</span><span class="s4"> </span><span class="s2">class</span><span class="s3">=</span><span class="s1">"mt-1 w-full p-3 rounded-lg border-gray-300 focus:ring-blue-500 focus:border-blue-500 shadow-sm"</span><span class="s3">&gt;</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">                            </span></span><span class="s3">&lt;/</span><span class="s6">div</span><span class="s3">&gt;</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">                            </span></span><span class="s3">&lt;</span><span class="s6">div</span><span class="s3">&gt;</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">                                </span></span><span class="s3">&lt;</span><span class="s6">label</span><span class="s1"> </span><span class="s2">for</span><span class="s3">=</span><span class="s5">"income_per_unit"</span><span class="s1"> </span><span class="s2">class</span><span class="s3">=</span><span class="s5">"text-sm font-medium text-gray-600"</span><span class="s3">&gt;</span><span class="s1">Income per Unit (₹)</span><span class="s3">&lt;/</span><span class="s6">label</span><span class="s3">&gt;</span></p>
-<p class="p4"><span class="s4"><span class="Apple-converted-space">                                </span></span><span class="s3">&lt;</span><span class="s6">input</span><span class="s4"> </span><span class="s2">type</span><span class="s3">=</span><span class="s1">"number"</span><span class="s4"> </span><span class="s2">id</span><span class="s3">=</span><span class="s1">"income_per_unit"</span><span class="s4"> </span><span class="s2">value</span><span class="s3">=</span><span class="s1">"3.04"</span><span class="s4"> </span><span class="s2">step</span><span class="s3">=</span><span class="s1">"0.01"</span><span class="s4"> </span><span class="s2">class</span><span class="s3">=</span><span class="s1">"mt-1 w-full p-3 rounded-lg border-gray-300 focus:ring-blue-500 focus:border-blue-500 shadow-sm"</span><span class="s3">&gt;</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">                            </span></span><span class="s3">&lt;/</span><span class="s6">div</span><span class="s3">&gt;</span></p>
-<p class="p4"><span class="s4"><span class="Apple-converted-space">                            </span></span><span class="s3">&lt;</span><span class="s6">div</span><span class="s4"> </span><span class="s2">class</span><span class="s3">=</span><span class="s1">"md:col-span-2 mt-4 p-4 bg-slate-50 rounded-lg grid grid-cols-1 md:grid-cols-2 gap-4"</span><span class="s3">&gt;</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">                                </span></span><span class="s3">&lt;</span><span class="s6">div</span><span class="s3">&gt;</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">                                    </span></span><span class="s3">&lt;</span><span class="s6">h3</span><span class="s1"> </span><span class="s2">class</span><span class="s3">=</span><span class="s5">"font-semibold text-slate-700"</span><span class="s3">&gt;</span><span class="s1">Total Monthly Income:</span><span class="s3">&lt;/</span><span class="s6">h3</span><span class="s3">&gt;</span></p>
-<p class="p4"><span class="s4"><span class="Apple-converted-space">                                    </span></span><span class="s3">&lt;</span><span class="s6">p</span><span class="s4"> </span><span class="s2">id</span><span class="s3">=</span><span class="s1">"monthly_income"</span><span class="s4"> </span><span class="s2">class</span><span class="s3">=</span><span class="s1">"text-2xl font-bold text-green-600"</span><span class="s3">&gt;</span><span class="s4">₹0.00</span><span class="s3">&lt;/</span><span class="s6">p</span><span class="s3">&gt;</span></p>
-<p class="p4"><span class="s4"><span class="Apple-converted-space">                                    </span></span><span class="s3">&lt;</span><span class="s6">p</span><span class="s4"> </span><span class="s2">id</span><span class="s3">=</span><span class="s1">"monthly_income_words"</span><span class="s4"> </span><span class="s2">class</span><span class="s3">=</span><span class="s1">"text-sm text-slate-500 italic"</span><span class="s3">&gt;&lt;/</span><span class="s6">p</span><span class="s3">&gt;</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">                                </span></span><span class="s3">&lt;/</span><span class="s6">div</span><span class="s3">&gt;</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">                                 </span></span><span class="s3">&lt;</span><span class="s6">div</span><span class="s3">&gt;</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">                                    </span></span><span class="s3">&lt;</span><span class="s6">h3</span><span class="s1"> </span><span class="s2">class</span><span class="s3">=</span><span class="s5">"font-semibold text-slate-700"</span><span class="s3">&gt;</span><span class="s1">Total Yearly Income:</span><span class="s3">&lt;/</span><span class="s6">h3</span><span class="s3">&gt;</span></p>
-<p class="p4"><span class="s4"><span class="Apple-converted-space">                                    </span></span><span class="s3">&lt;</span><span class="s6">p</span><span class="s4"> </span><span class="s2">id</span><span class="s3">=</span><span class="s1">"yearly_income"</span><span class="s4"> </span><span class="s2">class</span><span class="s3">=</span><span class="s1">"text-2xl font-bold text-green-600"</span><span class="s3">&gt;</span><span class="s4">₹0.00</span><span class="s3">&lt;/</span><span class="s6">p</span><span class="s3">&gt;</span></p>
-<p class="p4"><span class="s4"><span class="Apple-converted-space">                                    </span></span><span class="s3">&lt;</span><span class="s6">p</span><span class="s4"> </span><span class="s2">id</span><span class="s3">=</span><span class="s1">"yearly_income_words"</span><span class="s4"> </span><span class="s2">class</span><span class="s3">=</span><span class="s1">"text-sm text-slate-500 italic"</span><span class="s3">&gt;&lt;/</span><span class="s6">p</span><span class="s3">&gt;</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">                                </span></span><span class="s3">&lt;/</span><span class="s6">div</span><span class="s3">&gt;</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">                            </span></span><span class="s3">&lt;/</span><span class="s6">div</span><span class="s3">&gt;</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">                        </span></span><span class="s3">&lt;/</span><span class="s6">div</span><span class="s3">&gt;</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">                    </span></span><span class="s3">&lt;/</span><span class="s6">div</span><span class="s3">&gt;</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">                </span></span><span class="s3">&lt;/</span><span class="s6">div</span><span class="s3">&gt;</span></p>
-<p class="p8"><span class="s1"><span class="Apple-converted-space">                </span></span></p>
-<p class="p6"><span class="s4"><span class="Apple-converted-space">                </span></span><span class="s1">&lt;!-- 5. 25-Year Lifecycle Analysis --&gt;</span></p>
-<p class="p4"><span class="s4"><span class="Apple-converted-space">                </span></span><span class="s3">&lt;</span><span class="s6">div</span><span class="s4"> </span><span class="s2">class</span><span class="s3">=</span><span class="s1">"border border-slate-200 rounded-xl"</span><span class="s3">&gt;</span></p>
-<p class="p4"><span class="s4"><span class="Apple-converted-space">                    </span></span><span class="s3">&lt;</span><span class="s6">button</span><span class="s4"> </span><span class="s2">class</span><span class="s3">=</span><span class="s1">"accordion-toggle w-full flex justify-between items-center p-5 text-left font-semibold text-lg text-slate-800"</span><span class="s4"> </span><span class="s2">data-target</span><span class="s3">=</span><span class="s1">"#longterm-section"</span><span class="s3">&gt;</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">                        </span></span><span class="s3">&lt;</span><span class="s6">span</span><span class="s3">&gt;</span><span class="s1">5. 25-Year Lifecycle Analysis</span><span class="s3">&lt;/</span><span class="s6">span</span><span class="s3">&gt;</span></p>
-<p class="p4"><span class="s4"><span class="Apple-converted-space">                        </span></span><span class="s3">&lt;</span><span class="s6">svg</span><span class="s4"> </span><span class="s2">class</span><span class="s3">=</span><span class="s1">"w-6 h-6 transform transition-transform"</span><span class="s4"> </span><span class="s2">fill</span><span class="s3">=</span><span class="s1">"none"</span><span class="s4"> </span><span class="s2">stroke</span><span class="s3">=</span><span class="s1">"currentColor"</span><span class="s4"> </span><span class="s2">viewBox</span><span class="s3">=</span><span class="s1">"0 0 24 24"</span><span class="s3">&gt;&lt;</span><span class="s6">path</span><span class="s4"> </span><span class="s2">stroke-linecap</span><span class="s3">=</span><span class="s1">"round"</span><span class="s4"> </span><span class="s2">stroke-linejoin</span><span class="s3">=</span><span class="s1">"round"</span><span class="s4"> </span><span class="s2">stroke-width</span><span class="s3">=</span><span class="s1">"2"</span><span class="s4"> </span><span class="s2">d</span><span class="s3">=</span><span class="s1">"M19 9l-7 7-7-7"</span><span class="s3">&gt;&lt;/</span><span class="s6">path</span><span class="s3">&gt;&lt;/</span><span class="s6">svg</span><span class="s3">&gt;</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">                    </span></span><span class="s3">&lt;/</span><span class="s6">button</span><span class="s3">&gt;</span></p>
-<p class="p4"><span class="s4"><span class="Apple-converted-space">                    </span></span><span class="s3">&lt;</span><span class="s6">div</span><span class="s4"> </span><span class="s2">id</span><span class="s3">=</span><span class="s1">"longterm-section"</span><span class="s4"> </span><span class="s2">class</span><span class="s3">=</span><span class="s1">"accordion-content"</span><span class="s3">&gt;</span></p>
-<p class="p4"><span class="s4"><span class="Apple-converted-space">                        </span></span><span class="s3">&lt;</span><span class="s6">div</span><span class="s4"> </span><span class="s2">class</span><span class="s3">=</span><span class="s1">"p-5 border-t border-slate-200 space-y-4"</span><span class="s3">&gt;</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">                            </span></span><span class="s3">&lt;</span><span class="s6">div</span><span class="s3">&gt;</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">                                </span></span><span class="s3">&lt;</span><span class="s6">h3</span><span class="s1"> </span><span class="s2">class</span><span class="s3">=</span><span class="s5">"font-semibold text-slate-700"</span><span class="s3">&gt;</span><span class="s1">Simple Payback Period:</span><span class="s3">&lt;/</span><span class="s6">h3</span><span class="s3">&gt;</span></p>
-<p class="p4"><span class="s4"><span class="Apple-converted-space">                                </span></span><span class="s3">&lt;</span><span class="s6">p</span><span class="s4"> </span><span class="s2">id</span><span class="s3">=</span><span class="s1">"payback_period"</span><span class="s4"> </span><span class="s2">class</span><span class="s3">=</span><span class="s1">"text-xl font-bold text-blue-600"</span><span class="s3">&gt;</span><span class="s4">Calculating...</span><span class="s3">&lt;/</span><span class="s6">p</span><span class="s3">&gt;</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">                                </span></span><span class="s3">&lt;</span><span class="s6">p</span><span class="s1"> </span><span class="s2">class</span><span class="s3">=</span><span class="s5">"text-xs text-slate-500 italic"</span><span class="s3">&gt;</span><span class="s1">Time to recover the total initial plant cost.</span><span class="s3">&lt;/</span><span class="s6">p</span><span class="s3">&gt;</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">                            </span></span><span class="s3">&lt;/</span><span class="s6">div</span><span class="s3">&gt;</span></p>
-<p class="p4"><span class="s4"><span class="Apple-converted-space">                            </span></span><span class="s3">&lt;</span><span class="s6">div</span><span class="s4"> </span><span class="s2">class</span><span class="s3">=</span><span class="s1">"grid grid-cols-1 md:grid-cols-2 gap-4 pt-4"</span><span class="s3">&gt;</span></p>
-<p class="p4"><span class="s4"><span class="Apple-converted-space">                                </span></span><span class="s3">&lt;</span><span class="s6">div</span><span class="s4"> </span><span class="s2">id</span><span class="s3">=</span><span class="s1">"loan_period_profit_box"</span><span class="s4"> </span><span class="s2">class</span><span class="s3">=</span><span class="s1">"p-4 bg-slate-50 rounded-lg"</span><span class="s3">&gt;</span></p>
-<p class="p4"><span class="s4"><span class="Apple-converted-space">                                    </span></span><span class="s3">&lt;</span><span class="s6">h3</span><span class="s4"> </span><span class="s2">id</span><span class="s3">=</span><span class="s1">"loan_period_profit_label"</span><span class="s4"> </span><span class="s2">class</span><span class="s3">=</span><span class="s1">"font-semibold text-slate-700"</span><span class="s3">&gt;&lt;/</span><span class="s6">h3</span><span class="s3">&gt;</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">                                     </span></span><span class="s3">&lt;</span><span class="s6">p</span><span class="s1"> </span><span class="s2">id</span><span class="s3">=</span><span class="s5">"loan_period_profit"</span><span class="s1"> </span><span class="s2">class</span><span class="s3">=</span><span class="s5">"text-xl font-bold"</span><span class="s3">&gt;</span><span class="s1">₹0.00</span><span class="s3">&lt;/</span><span class="s6">p</span><span class="s3">&gt;</span></p>
-<p class="p4"><span class="s4"><span class="Apple-converted-space">                                     </span></span><span class="s3">&lt;</span><span class="s6">p</span><span class="s4"> </span><span class="s2">id</span><span class="s3">=</span><span class="s1">"loan_period_profit_words"</span><span class="s4"> </span><span class="s2">class</span><span class="s3">=</span><span class="s1">"text-sm text-slate-500 italic"</span><span class="s3">&gt;&lt;/</span><span class="s6">p</span><span class="s3">&gt;</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">                                </span></span><span class="s3">&lt;/</span><span class="s6">div</span><span class="s3">&gt;</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">                                </span></span><span class="s3">&lt;</span><span class="s6">div</span><span class="s1"> </span><span class="s2">class</span><span class="s3">=</span><span class="s5">"p-4 bg-slate-50 rounded-lg"</span><span class="s3">&gt;</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">                                    </span></span><span class="s3">&lt;</span><span class="s6">h3</span><span class="s1"> </span><span class="s2">class</span><span class="s3">=</span><span class="s5">"font-semibold text-slate-700"</span><span class="s3">&gt;</span><span class="s1">Net Profit (Post-Loan Period)</span><span class="s3">&lt;/</span><span class="s6">h3</span><span class="s3">&gt;</span></p>
-<p class="p4"><span class="s4"><span class="Apple-converted-space">                                    </span></span><span class="s3">&lt;</span><span class="s6">p</span><span class="s4"> </span><span class="s2">id</span><span class="s3">=</span><span class="s1">"post_loan_profit"</span><span class="s4"> </span><span class="s2">class</span><span class="s3">=</span><span class="s1">"text-xl font-bold text-slate-800"</span><span class="s3">&gt;</span><span class="s4">₹0.00</span><span class="s3">&lt;/</span><span class="s6">p</span><span class="s3">&gt;</span></p>
-<p class="p4"><span class="s4"><span class="Apple-converted-space">                                    </span></span><span class="s3">&lt;</span><span class="s6">p</span><span class="s4"> </span><span class="s2">id</span><span class="s3">=</span><span class="s1">"post_loan_profit_words"</span><span class="s4"> </span><span class="s2">class</span><span class="s3">=</span><span class="s1">"text-sm text-slate-500 italic"</span><span class="s3">&gt;&lt;/</span><span class="s6">p</span><span class="s3">&gt;</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">                                </span></span><span class="s3">&lt;/</span><span class="s6">div</span><span class="s3">&gt;</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">                            </span></span><span class="s3">&lt;/</span><span class="s6">div</span><span class="s3">&gt;</span></p>
-<p class="p4"><span class="s4"><span class="Apple-converted-space">                             </span></span><span class="s3">&lt;</span><span class="s6">div</span><span class="s4"> </span><span class="s2">class</span><span class="s3">=</span><span class="s1">"mt-4 p-6 bg-green-50 rounded-lg text-center"</span><span class="s3">&gt;</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">                                </span></span><span class="s3">&lt;</span><span class="s6">h3</span><span class="s1"> </span><span class="s2">class</span><span class="s3">=</span><span class="s5">"font-semibold text-green-800"</span><span class="s3">&gt;</span><span class="s1">Total Estimated Profit over 25 Years</span><span class="s3">&lt;/</span><span class="s6">h3</span><span class="s3">&gt;</span></p>
-<p class="p4"><span class="s4"><span class="Apple-converted-space">                                </span></span><span class="s3">&lt;</span><span class="s6">p</span><span class="s4"> </span><span class="s2">id</span><span class="s3">=</span><span class="s1">"total_25_year_profit"</span><span class="s4"> </span><span class="s2">class</span><span class="s3">=</span><span class="s1">"text-3xl font-bold text-green-700 mt-1"</span><span class="s3">&gt;</span><span class="s4">₹0.00</span><span class="s3">&lt;/</span><span class="s6">p</span><span class="s3">&gt;</span></p>
-<p class="p4"><span class="s4"><span class="Apple-converted-space">                                </span></span><span class="s3">&lt;</span><span class="s6">p</span><span class="s4"> </span><span class="s2">id</span><span class="s3">=</span><span class="s1">"total_25_year_profit_words"</span><span class="s4"> </span><span class="s2">class</span><span class="s3">=</span><span class="s1">"text-sm text-green-600 italic"</span><span class="s3">&gt;&lt;/</span><span class="s6">p</span><span class="s3">&gt;</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">                            </span></span><span class="s3">&lt;/</span><span class="s6">div</span><span class="s3">&gt;</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">                        </span></span><span class="s3">&lt;/</span><span class="s6">div</span><span class="s3">&gt;</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">                    </span></span><span class="s3">&lt;/</span><span class="s6">div</span><span class="s3">&gt;</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">                </span></span><span class="s3">&lt;/</span><span class="s6">div</span><span class="s3">&gt;</span></p>
-<p class="p8"><span class="s10"></span><br></p>
-<p class="p8"><span class="s10"></span><br></p>
-<p class="p6"><span class="s4"><span class="Apple-converted-space">                </span></span><span class="s1">&lt;!-- 6. Viability Test --&gt;</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">                </span></span><span class="s3">&lt;</span><span class="s6">div</span><span class="s1"> </span><span class="s2">class</span><span class="s3">=</span><span class="s5">"pt-6"</span><span class="s3">&gt;</span></p>
-<p class="p4"><span class="s4"><span class="Apple-converted-space">                    </span></span><span class="s3">&lt;</span><span class="s6">div</span><span class="s4"> </span><span class="s2">class</span><span class="s3">=</span><span class="s1">"bg-gradient-to-br from-slate-800 to-slate-900 rounded-xl p-8 text-white shadow-lg"</span><span class="s3">&gt;</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">                        </span></span><span class="s3">&lt;</span><span class="s6">h2</span><span class="s1"> </span><span class="s2">class</span><span class="s3">=</span><span class="s5">"text-2xl font-bold text-center mb-6"</span><span class="s3">&gt;</span><span class="s1">6. Monthly Viability Test</span><span class="s3">&lt;/</span><span class="s6">h2</span><span class="s3">&gt;</span></p>
-<p class="p4"><span class="s4"><span class="Apple-converted-space">                        </span></span><span class="s3">&lt;</span><span class="s6">div</span><span class="s4"> </span><span class="s2">class</span><span class="s3">=</span><span class="s1">"grid grid-cols-1 md:grid-cols-3 gap-6 text-center"</span><span class="s3">&gt;</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">                            </span></span><span class="s3">&lt;</span><span class="s6">div</span><span class="s3">&gt;</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">                                </span></span><span class="s3">&lt;</span><span class="s6">p</span><span class="s1"> </span><span class="s2">class</span><span class="s3">=</span><span class="s5">"text-slate-400 text-sm"</span><span class="s3">&gt;</span><span class="s1">Monthly Income</span><span class="s3">&lt;/</span><span class="s6">p</span><span class="s3">&gt;</span></p>
-<p class="p4"><span class="s4"><span class="Apple-converted-space">                                </span></span><span class="s3">&lt;</span><span class="s6">p</span><span class="s4"> </span><span class="s2">id</span><span class="s3">=</span><span class="s1">"summary_income"</span><span class="s4"> </span><span class="s2">class</span><span class="s3">=</span><span class="s1">"text-2xl font-bold text-green-400"</span><span class="s3">&gt;</span><span class="s4">₹0.00</span><span class="s3">&lt;/</span><span class="s6">p</span><span class="s3">&gt;</span></p>
-<p class="p4"><span class="s4"><span class="Apple-converted-space">                                </span></span><span class="s3">&lt;</span><span class="s6">p</span><span class="s4"> </span><span class="s2">id</span><span class="s3">=</span><span class="s1">"summary_income_words"</span><span class="s4"> </span><span class="s2">class</span><span class="s3">=</span><span class="s1">"text-sm text-slate-400 italic"</span><span class="s3">&gt;&lt;/</span><span class="s6">p</span><span class="s3">&gt;</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">                            </span></span><span class="s3">&lt;/</span><span class="s6">div</span><span class="s3">&gt;</span></p>
-<p class="p4"><span class="s4"><span class="Apple-converted-space">                             </span></span><span class="s3">&lt;</span><span class="s6">div</span><span class="s4"> </span><span class="s2">class</span><span class="s3">=</span><span class="s1">"flex justify-center items-center text-3xl text-slate-500"</span><span class="s3">&gt;</span><span class="s4">-</span><span class="s3">&lt;/</span><span class="s6">div</span><span class="s3">&gt;</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">                            </span></span><span class="s3">&lt;</span><span class="s6">div</span><span class="s1"> </span><span class="s2">class</span><span class="s3">=</span><span class="s5">"grid grid-cols-1"</span><span class="s3">&gt;</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">                                </span></span><span class="s3">&lt;</span><span class="s6">div</span><span class="s3">&gt;</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">                                    </span></span><span class="s3">&lt;</span><span class="s6">p</span><span class="s1"> </span><span class="s2">class</span><span class="s3">=</span><span class="s5">"text-slate-400 text-sm"</span><span class="s3">&gt;</span><span class="s1">Total Monthly Costs</span><span class="s3">&lt;/</span><span class="s6">p</span><span class="s3">&gt;</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">                                    </span></span><span class="s3">&lt;</span><span class="s6">p</span><span class="s1"> </span><span class="s2">class</span><span class="s3">=</span><span class="s5">"text-sm text-slate-400"</span><span class="s3">&gt;</span><span class="s1">(EMI + O&amp;M)</span><span class="s3">&lt;/</span><span class="s6">p</span><span class="s3">&gt;</span></p>
-<p class="p4"><span class="s4"><span class="Apple-converted-space">                                    </span></span><span class="s3">&lt;</span><span class="s6">p</span><span class="s4"> </span><span class="s2">id</span><span class="s3">=</span><span class="s1">"summary_costs"</span><span class="s4"> </span><span class="s2">class</span><span class="s3">=</span><span class="s1">"text-2xl font-bold text-red-400"</span><span class="s3">&gt;</span><span class="s4">₹0.00</span><span class="s3">&lt;/</span><span class="s6">p</span><span class="s3">&gt;</span></p>
-<p class="p4"><span class="s4"><span class="Apple-converted-space">                                    </span></span><span class="s3">&lt;</span><span class="s6">p</span><span class="s4"> </span><span class="s2">id</span><span class="s3">=</span><span class="s1">"summary_costs_words"</span><span class="s4"> </span><span class="s2">class</span><span class="s3">=</span><span class="s1">"text-sm text-slate-400 italic"</span><span class="s3">&gt;&lt;/</span><span class="s6">p</span><span class="s3">&gt;</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">                                </span></span><span class="s3">&lt;/</span><span class="s6">div</span><span class="s3">&gt;</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">                            </span></span><span class="s3">&lt;/</span><span class="s6">div</span><span class="s3">&gt;</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">                        </span></span><span class="s3">&lt;/</span><span class="s6">div</span><span class="s3">&gt;</span></p>
-<p class="p4"><span class="s4"><span class="Apple-converted-space">                        </span></span><span class="s3">&lt;</span><span class="s6">div</span><span class="s4"> </span><span class="s2">class</span><span class="s3">=</span><span class="s1">"mt-8 pt-6 border-t border-slate-700 text-center"</span><span class="s3">&gt;</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">                            </span></span><span class="s3">&lt;</span><span class="s6">p</span><span class="s1"> </span><span class="s2">class</span><span class="s3">=</span><span class="s5">"text-slate-300 text-lg"</span><span class="s3">&gt;</span><span class="s1">Overall Monthly Financial Position</span><span class="s3">&lt;/</span><span class="s6">p</span><span class="s3">&gt;</span></p>
-<p class="p4"><span class="s4"><span class="Apple-converted-space">                            </span></span><span class="s3">&lt;</span><span class="s6">p</span><span class="s4"> </span><span class="s2">id</span><span class="s3">=</span><span class="s1">"viability_result"</span><span class="s4"> </span><span class="s2">class</span><span class="s3">=</span><span class="s1">"text-5xl font-extrabold mt-2"</span><span class="s3">&gt;</span><span class="s4">--</span><span class="s3">&lt;/</span><span class="s6">p</span><span class="s3">&gt;</span></p>
-<p class="p4"><span class="s4"><span class="Apple-converted-space">                             </span></span><span class="s3">&lt;</span><span class="s6">p</span><span class="s4"> </span><span class="s2">id</span><span class="s3">=</span><span class="s1">"viability_result_words"</span><span class="s4"> </span><span class="s2">class</span><span class="s3">=</span><span class="s1">"text-lg text-slate-300 italic"</span><span class="s3">&gt;&lt;/</span><span class="s6">p</span><span class="s3">&gt;</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">                        </span></span><span class="s3">&lt;/</span><span class="s6">div</span><span class="s3">&gt;</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">                    </span></span><span class="s3">&lt;/</span><span class="s6">div</span><span class="s3">&gt;</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">                </span></span><span class="s3">&lt;/</span><span class="s6">div</span><span class="s3">&gt;</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">            </span></span><span class="s3">&lt;/</span><span class="s6">div</span><span class="s3">&gt;</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">        </span></span><span class="s3">&lt;/</span><span class="s6">div</span><span class="s3">&gt;</span></p>
-<p class="p4"><span class="s4"><span class="Apple-converted-space">        </span></span><span class="s3">&lt;</span><span class="s6">footer</span><span class="s4"> </span><span class="s2">class</span><span class="s3">=</span><span class="s1">"text-center mt-6 text-sm text-gray-500"</span><span class="s3">&gt;</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">            </span></span><span class="s3">&lt;</span><span class="s6">p</span><span class="s3">&gt;</span><span class="s1">This calculator provides an estimate for viability assessment. Consult with a financial advisor for detailed analysis.</span><span class="s3">&lt;/</span><span class="s6">p</span><span class="s3">&gt;</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">        </span></span><span class="s3">&lt;/</span><span class="s6">footer</span><span class="s3">&gt;</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">    </span></span><span class="s3">&lt;/</span><span class="s6">div</span><span class="s3">&gt;</span></p>
-<p class="p8"><span class="s10"></span><br></p>
-<p class="p2"><span class="s4"><span class="Apple-converted-space">    </span></span><span class="s3">&lt;</span><span class="s1">script</span><span class="s3">&gt;</span></p>
-<p class="p6"><span class="s4"><span class="Apple-converted-space">        </span></span><span class="s1">// --- DOM Element Selection ---</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">        </span></span><span class="s11">const</span><span class="s1"> allInputs = </span><span class="s12">Array</span><span class="s1">.</span><span class="s11">from</span><span class="s1">(document.querySelectorAll(</span><span class="s7">'input'</span><span class="s1">));</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">        </span></span><span class="s11">const</span><span class="s1"> elements = {</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">            </span></span><span class="s13">// Section 1</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">            </span>capacity: document.getElementById(</span><span class="s7">'capacity'</span><span class="s1">),</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">            </span>panelCost: document.getElementById(</span><span class="s7">'panel_cost'</span><span class="s1">),</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">            </span>discount: document.getElementById(</span><span class="s7">'discount'</span><span class="s1">),</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">            </span>structureCost: document.getElementById(</span><span class="s7">'structure_cost'</span><span class="s1">),</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">            </span>totalCost: document.getElementById(</span><span class="s7">'total_cost'</span><span class="s1">),</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">            </span>totalCostWords: document.getElementById(</span><span class="s7">'total_cost_words'</span><span class="s1">),</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">            </span></span><span class="s13">// Section 2</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">            </span>selfFund: document.getElementById(</span><span class="s7">'self_fund'</span><span class="s1">),</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">            </span>loanAmount: document.getElementById(</span><span class="s7">'loan_amount'</span><span class="s1">),</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">            </span>loanAmountWords: document.getElementById(</span><span class="s7">'loan_amount_words'</span><span class="s1">),</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">            </span>interestRate: document.getElementById(</span><span class="s7">'interest_rate'</span><span class="s1">),</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">            </span>interestRateVal: document.getElementById(</span><span class="s7">'interest_rate_val'</span><span class="s1">),</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">            </span>loanTenure: document.getElementById(</span><span class="s7">'loan_tenure'</span><span class="s1">),</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">            </span>loanTenureVal: document.getElementById(</span><span class="s7">'loan_tenure_val'</span><span class="s1">),</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">            </span>monthlyEmi: document.getElementById(</span><span class="s7">'monthly_emi'</span><span class="s1">),</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">            </span>monthlyEmiWords: document.getElementById(</span><span class="s7">'monthly_emi_words'</span><span class="s1">),</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">            </span></span><span class="s13">// Section 3</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">            </span>requiredLand: document.getElementById(</span><span class="s7">'required_land'</span><span class="s1">),</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">            </span>rentalCostBigha: document.getElementById(</span><span class="s7">'rental_cost_bigha'</span><span class="s1">),</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">            </span>totalRentalCost: document.getElementById(</span><span class="s7">'total_rental_cost'</span><span class="s1">),</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">            </span>totalRentalCostWords: document.getElementById(</span><span class="s7">'total_rental_cost_words'</span><span class="s1">),</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">            </span>securityGuards: document.getElementById(</span><span class="s7">'security_guards'</span><span class="s1">),</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">            </span>guardSalary: document.getElementById(</span><span class="s7">'guard_salary'</span><span class="s1">),</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">            </span>engineers: document.getElementById(</span><span class="s7">'engineers'</span><span class="s1">),</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">            </span>engineerSalary: document.getElementById(</span><span class="s7">'engineer_salary'</span><span class="s1">),</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">            </span>miscCost: document.getElementById(</span><span class="s7">'misc_cost'</span><span class="s1">),</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">            </span>omCost: document.getElementById(</span><span class="s7">'om_cost'</span><span class="s1">),</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">            </span>omCostWords: document.getElementById(</span><span class="s7">'om_cost_words'</span><span class="s1">),</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">            </span></span><span class="s13">// Section 4</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">            </span>generation: document.getElementById(</span><span class="s7">'generation'</span><span class="s1">),</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">            </span>incomePerUnit: document.getElementById(</span><span class="s7">'income_per_unit'</span><span class="s1">),</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">            </span>monthlyIncome: document.getElementById(</span><span class="s7">'monthly_income'</span><span class="s1">),</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">            </span>monthlyIncomeWords: document.getElementById(</span><span class="s7">'monthly_income_words'</span><span class="s1">),</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">            </span>yearlyIncome: document.getElementById(</span><span class="s7">'yearly_income'</span><span class="s1">),</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">            </span>yearlyIncomeWords: document.getElementById(</span><span class="s7">'yearly_income_words'</span><span class="s1">),</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">            </span></span><span class="s13">// Section 5</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">            </span>paybackPeriod: document.getElementById(</span><span class="s7">'payback_period'</span><span class="s1">),</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">            </span>loanPeriodProfitBox: document.getElementById(</span><span class="s7">'loan_period_profit_box'</span><span class="s1">),</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">            </span>loanPeriodProfitLabel: document.getElementById(</span><span class="s7">'loan_period_profit_label'</span><span class="s1">),</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">            </span>loanPeriodProfit: document.getElementById(</span><span class="s7">'loan_period_profit'</span><span class="s1">),</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">            </span>loanPeriodProfitWords: document.getElementById(</span><span class="s7">'loan_period_profit_words'</span><span class="s1">),</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">            </span>postLoanProfit: document.getElementById(</span><span class="s7">'post_loan_profit'</span><span class="s1">),</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">            </span>postLoanProfitWords: document.getElementById(</span><span class="s7">'post_loan_profit_words'</span><span class="s1">),</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">            </span>total25YearProfit: document.getElementById(</span><span class="s7">'total_25_year_profit'</span><span class="s1">),</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">            </span>total25YearProfitWords: document.getElementById(</span><span class="s7">'total_25_year_profit_words'</span><span class="s1">),</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">            </span></span><span class="s13">// Section 6</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">            </span>summaryIncome: document.getElementById(</span><span class="s7">'summary_income'</span><span class="s1">),</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">            </span>summaryIncomeWords: document.getElementById(</span><span class="s7">'summary_income_words'</span><span class="s1">),</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">            </span>summaryCosts: document.getElementById(</span><span class="s7">'summary_costs'</span><span class="s1">),</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">            </span>summaryCostsWords: document.getElementById(</span><span class="s7">'summary_costs_words'</span><span class="s1">),</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">            </span>viabilityResult: document.getElementById(</span><span class="s7">'viability_result'</span><span class="s1">),</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">            </span>viabilityResultWords: document.getElementById(</span><span class="s7">'viability_result_words'</span><span class="s1">),</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">        </span>};</span></p>
-<p class="p8"><span class="s10"></span><br></p>
-<p class="p6"><span class="s4"><span class="Apple-converted-space">        </span></span><span class="s1">// --- Helper Functions ---</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">        </span></span><span class="s11">const</span><span class="s1"> formatCurrency = (value) =&gt; </span><span class="s11">new</span><span class="s1"> </span><span class="s12">Intl</span><span class="s1">.</span><span class="s12">NumberFormat</span><span class="s1">(</span><span class="s7">'en-IN'</span><span class="s1">, { style: </span><span class="s7">'currency'</span><span class="s1">, currency: </span><span class="s7">'INR'</span><span class="s1">, maximumFractionDigits: </span><span class="s14">2</span><span class="s1"> }).format(value);</span></p>
-<p class="p8"><span class="s1"><span class="Apple-converted-space">        </span></span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">        </span></span><span class="s11">function</span><span class="s1"> numberToWords(num) {</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">            </span></span><span class="s11">if</span><span class="s1"> (isNaN(num)) </span><span class="s11">return</span><span class="s1"> </span><span class="s7">''</span><span class="s1">;</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">            </span></span><span class="s11">const</span><span class="s1"> absNum = </span><span class="s12">Math</span><span class="s1">.abs(</span><span class="s12">Math</span><span class="s1">.floor(num));</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">            </span></span><span class="s11">if</span><span class="s1"> (absNum &lt; </span><span class="s14">100000</span><span class="s1">) </span><span class="s11">return</span><span class="s1"> </span><span class="s7">`(</span><span class="s1">${absNum.toLocaleString(</span><span class="s7">'en-IN'</span><span class="s1">)}</span><span class="s7">)`</span><span class="s1">;</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">            </span></span><span class="s11">if</span><span class="s1"> (absNum &lt; </span><span class="s14">10000000</span><span class="s1">) </span><span class="s11">return</span><span class="s1"> </span><span class="s7">`(</span><span class="s1">${(absNum / </span><span class="s14">100000</span><span class="s1">).toFixed(</span><span class="s14">2</span><span class="s1">)}</span><span class="s7"> Lakh)`</span><span class="s1">;</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">            </span></span><span class="s11">return</span><span class="s1"> </span><span class="s7">`(</span><span class="s1">${(absNum / </span><span class="s14">10000000</span><span class="s1">).toFixed(</span><span class="s14">2</span><span class="s1">)}</span><span class="s7"> Crore)`</span><span class="s1">;</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">        </span>}</span></p>
-<p class="p8"><span class="s10"></span><br></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">        </span></span><span class="s11">function</span><span class="s1"> handleCapacityChange() {</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">             </span></span><span class="s11">const</span><span class="s1"> capacityKW = parseFloat(elements.capacity.value) || </span><span class="s14">0</span><span class="s1">;</span></p>
-<p class="p6"><span class="s4"><span class="Apple-converted-space">             </span></span><span class="s1">// Auto-update land requirement: 6 Bigha per 1000 KW</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">             </span></span><span class="s11">const</span><span class="s1"> requiredLandVal = (capacityKW / </span><span class="s14">1000</span><span class="s1">) * </span><span class="s14">6</span><span class="s1">;</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">             </span>elements.requiredLand.value = requiredLandVal.toFixed(</span><span class="s14">2</span><span class="s1">);</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">             </span>calculateViability();</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">        </span>}</span></p>
-<p class="p8"><span class="s10"></span><br></p>
-<p class="p6"><span class="s4"><span class="Apple-converted-space">        </span></span><span class="s1">// --- Main Calculation Function ---</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">        </span></span><span class="s11">function</span><span class="s1"> calculateViability() {</span></p>
-<p class="p6"><span class="s4"><span class="Apple-converted-space">            </span></span><span class="s1">// --- 1. Calculate Total Plant Cost ---</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">            </span></span><span class="s11">const</span><span class="s1"> capacityKW = parseFloat(elements.capacity.value) || </span><span class="s14">0</span><span class="s1">;</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">            </span></span><span class="s11">const</span><span class="s1"> panelCostPerWatt = parseFloat(elements.panelCost.value) || </span><span class="s14">0</span><span class="s1">;</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">            </span></span><span class="s11">const</span><span class="s1"> totalDiscount = parseFloat(elements.discount.value) || </span><span class="s14">0</span><span class="s1">;</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">            </span></span><span class="s11">const</span><span class="s1"> structureCost = parseFloat(elements.structureCost.value) || </span><span class="s14">0</span><span class="s1">;</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">            </span></span><span class="s11">const</span><span class="s1"> totalPanelCost = (capacityKW * </span><span class="s14">1000</span><span class="s1">) * panelCostPerWatt;</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">            </span></span><span class="s11">const</span><span class="s1"> discountedPanelCost = </span><span class="s12">Math</span><span class="s1">.max(</span><span class="s14">0</span><span class="s1">, totalPanelCost - totalDiscount);</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">            </span></span><span class="s11">const</span><span class="s1"> totalPlantCost = discountedPanelCost + structureCost;</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">            </span>elements.totalCost.textContent = formatCurrency(totalPlantCost);</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">            </span>elements.totalCostWords.textContent = numberToWords(totalPlantCost);</span></p>
-<p class="p8"><span class="s10"></span><br></p>
-<p class="p6"><span class="s4"><span class="Apple-converted-space">            </span></span><span class="s1">// --- 2. Calculate Funding and EMI ---</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">            </span></span><span class="s11">const</span><span class="s1"> selfFundAmount = parseFloat(elements.selfFund.value) || </span><span class="s14">0</span><span class="s1">;</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">            </span></span><span class="s11">const</span><span class="s1"> loanAmountVal = </span><span class="s12">Math</span><span class="s1">.max(</span><span class="s14">0</span><span class="s1">, totalPlantCost - selfFundAmount);</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">            </span>elements.loanAmount.textContent = formatCurrency(loanAmountVal);</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">            </span>elements.loanAmountWords.textContent = numberToWords(loanAmountVal);</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">            </span></span><span class="s11">const</span><span class="s1"> interestRateVal = parseFloat(elements.interestRate.value);</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">            </span></span><span class="s11">const</span><span class="s1"> loanTenureVal = parseInt(elements.loanTenure.value);</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">            </span>elements.interestRateVal.textContent = </span><span class="s7">`</span><span class="s1">${interestRateVal.toFixed(</span><span class="s14">1</span><span class="s1">)}</span><span class="s7">%`</span><span class="s1">;</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">            </span>elements.loanTenureVal.textContent = </span><span class="s7">`</span><span class="s1">${loanTenureVal}</span><span class="s7"> Years`</span><span class="s1">;</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">            </span></span><span class="s11">const</span><span class="s1"> monthlyInterestRate = interestRateVal / </span><span class="s14">12</span><span class="s1"> / </span><span class="s14">100</span><span class="s1">;</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">            </span></span><span class="s11">const</span><span class="s1"> numberOfMonths = loanTenureVal * </span><span class="s14">12</span><span class="s1">;</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">            </span></span><span class="s11">let</span><span class="s1"> monthlyEmiVal = </span><span class="s14">0</span><span class="s1">;</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">            </span></span><span class="s11">if</span><span class="s1"> (loanAmountVal &gt; </span><span class="s14">0</span><span class="s1"> &amp;&amp; monthlyInterestRate &gt; </span><span class="s14">0</span><span class="s1"> &amp;&amp; numberOfMonths &gt; </span><span class="s14">0</span><span class="s1">) {</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">                 </span>monthlyEmiVal = loanAmountVal * monthlyInterestRate * </span><span class="s12">Math</span><span class="s1">.pow(</span><span class="s14">1</span><span class="s1"> + monthlyInterestRate, numberOfMonths) / (</span><span class="s12">Math</span><span class="s1">.pow(</span><span class="s14">1</span><span class="s1"> + monthlyInterestRate, numberOfMonths) - </span><span class="s14">1</span><span class="s1">);</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">            </span>}</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">            </span>elements.monthlyEmi.textContent = formatCurrency(monthlyEmiVal);</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">            </span>elements.monthlyEmiWords.textContent = numberToWords(monthlyEmiVal);</span></p>
-<p class="p8"><span class="s10"></span><br></p>
-<p class="p6"><span class="s4"><span class="Apple-converted-space">            </span></span><span class="s1">// --- 3. Calculate O&amp;M Costs ---</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">            </span></span><span class="s11">const</span><span class="s1"> monthlyRentalCost = (parseFloat(elements.rentalCostBigha.value) || </span><span class="s14">0</span><span class="s1">) * (parseFloat(elements.requiredLand.value) || </span><span class="s14">0</span><span class="s1">);</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">            </span>elements.totalRentalCost.textContent = formatCurrency(monthlyRentalCost);</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">            </span>elements.totalRentalCostWords.textContent = numberToWords(monthlyRentalCost);</span></p>
-<p class="p8"><span class="s10"></span><br></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">            </span></span><span class="s11">const</span><span class="s1"> guardCost = (parseFloat(elements.securityGuards.value) || </span><span class="s14">0</span><span class="s1">) * (parseFloat(elements.guardSalary.value) || </span><span class="s14">0</span><span class="s1">);</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">            </span></span><span class="s11">const</span><span class="s1"> engineerCost = (parseFloat(elements.engineers.value) || </span><span class="s14">0</span><span class="s1">) * (parseFloat(elements.engineerSalary.value) || </span><span class="s14">0</span><span class="s1">);</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">            </span></span><span class="s11">const</span><span class="s1"> miscCost = parseFloat(elements.miscCost.value) || </span><span class="s14">0</span><span class="s1">;</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">            </span></span><span class="s11">const</span><span class="s1"> totalOMCost = monthlyRentalCost + guardCost + engineerCost + miscCost;</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">            </span>elements.omCost.textContent = formatCurrency(totalOMCost);</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">            </span>elements.omCostWords.textContent = numberToWords(totalOMCost);</span></p>
-<p class="p8"><span class="s10"></span><br></p>
-<p class="p6"><span class="s4"><span class="Apple-converted-space">            </span></span><span class="s1">// --- 4. Calculate Generation &amp; Income ---</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">            </span></span><span class="s11">const</span><span class="s1"> dailyGeneration = (parseFloat(elements.generation.value) || </span><span class="s14">0</span><span class="s1">) * capacityKW;</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">            </span></span><span class="s11">const</span><span class="s1"> incomePerUnitVal = parseFloat(elements.incomePerUnit.value) || </span><span class="s14">0</span><span class="s1">;</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">            </span></span><span class="s11">const</span><span class="s1"> monthlyIncomeVal = dailyGeneration * </span><span class="s14">30</span><span class="s1"> * incomePerUnitVal;</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">            </span></span><span class="s11">const</span><span class="s1"> yearlyIncomeVal = monthlyIncomeVal * </span><span class="s14">12</span><span class="s1">;</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">            </span>elements.monthlyIncome.textContent = formatCurrency(monthlyIncomeVal);</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">            </span>elements.monthlyIncomeWords.textContent = numberToWords(monthlyIncomeVal);</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">            </span>elements.yearlyIncome.textContent = formatCurrency(yearlyIncomeVal);</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">            </span>elements.yearlyIncomeWords.textContent = numberToWords(yearlyIncomeVal);</span></p>
-<p class="p8"><span class="s10"></span><br></p>
-<p class="p8"><span class="s10"></span><br></p>
-<p class="p6"><span class="s4"><span class="Apple-converted-space">            </span></span><span class="s1">// --- 5. Calculate Monthly Viability ---</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">            </span></span><span class="s11">const</span><span class="s1"> totalMonthlyCosts = monthlyEmiVal + totalOMCost;</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">            </span></span><span class="s11">const</span><span class="s1"> netMonthlyPosition = monthlyIncomeVal - totalMonthlyCosts;</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">            </span>elements.summaryIncome.textContent = formatCurrency(monthlyIncomeVal);</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">            </span>elements.summaryIncomeWords.textContent = numberToWords(monthlyIncomeVal);</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">            </span>elements.summaryCosts.textContent = formatCurrency(totalMonthlyCosts);</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">            </span>elements.summaryCostsWords.textContent = numberToWords(totalMonthlyCosts);</span></p>
-<p class="p8"><span class="s10"></span><br></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">            </span></span><span class="s11">if</span><span class="s1"> (netMonthlyPosition &gt; </span><span class="s14">0</span><span class="s1">) {</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">                </span>elements.viabilityResult.textContent = </span><span class="s7">`Profit: </span><span class="s1">${formatCurrency(netMonthlyPosition)}</span><span class="s7">`</span><span class="s1">;</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">                </span>elements.viabilityResultWords.textContent = numberToWords(netMonthlyPosition);</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">                </span>elements.viabilityResult.className = </span><span class="s7">'text-5xl font-extrabold mt-2 text-green-400'</span><span class="s1">;</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">            </span>} </span><span class="s11">else</span><span class="s1"> {</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">                </span>elements.viabilityResult.textContent = </span><span class="s7">`Loss: </span><span class="s1">${formatCurrency(</span><span class="s12">Math</span><span class="s1">.abs(netMonthlyPosition))}</span><span class="s7">`</span><span class="s1">;</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">                </span>elements.viabilityResultWords.textContent = numberToWords(netMonthlyPosition);</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">                </span>elements.viabilityResult.className = </span><span class="s7">'text-5xl font-extrabold mt-2 text-red-400'</span><span class="s1">;</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">            </span>}</span></p>
-<p class="p8"><span class="s10"></span><br></p>
-<p class="p6"><span class="s4"><span class="Apple-converted-space">            </span></span><span class="s1">// --- 6. Calculate Long-Term Viability (25 Years) ---</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">            </span></span><span class="s11">const</span><span class="s1"> plantLifespanMonths = </span><span class="s14">25</span><span class="s1"> * </span><span class="s14">12</span><span class="s1">;</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">            </span></span><span class="s11">const</span><span class="s1"> postLoanMonths = </span><span class="s12">Math</span><span class="s1">.max(</span><span class="s14">0</span><span class="s1">, plantLifespanMonths - numberOfMonths);</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">            </span></span><span class="s11">const</span><span class="s1"> postLoanMonthlyProfit = monthlyIncomeVal - totalOMCost;</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">            </span></span><span class="s11">const</span><span class="s1"> loanPeriodTotalProfit = netMonthlyPosition * numberOfMonths;</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">            </span></span><span class="s11">const</span><span class="s1"> postLoanTotalProfit = postLoanMonthlyProfit * postLoanMonths;</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">            </span></span><span class="s11">const</span><span class="s1"> total25YearProfitVal = loanPeriodTotalProfit + postLoanTotalProfit;</span></p>
-<p class="p8"><span class="s1"><span class="Apple-converted-space">            </span></span></p>
-<p class="p6"><span class="s4"><span class="Apple-converted-space">            </span></span><span class="s1">// Payback Period Calculation</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">            </span></span><span class="s11">let</span><span class="s1"> monthsToPayback = </span><span class="s14">0</span><span class="s1">;</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">            </span></span><span class="s11">if</span><span class="s1"> (totalPlantCost &gt; </span><span class="s14">0</span><span class="s1"> &amp;&amp; (netMonthlyPosition &gt; </span><span class="s14">0</span><span class="s1"> || (netMonthlyPosition &lt;= </span><span class="s14">0</span><span class="s1"> &amp;&amp; postLoanMonthlyProfit &gt; </span><span class="s14">0</span><span class="s1">))) {</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">                </span></span><span class="s11">let</span><span class="s1"> cumulativeProfit = </span><span class="s14">0</span><span class="s1">;</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">                </span></span><span class="s11">for</span><span class="s1"> (</span><span class="s11">let</span><span class="s1"> m = </span><span class="s14">1</span><span class="s1">; m &lt;= plantLifespanMonths; m++) {</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">                    </span>cumulativeProfit += (m &lt;= numberOfMonths) ? netMonthlyPosition : postLoanMonthlyProfit;</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">                    </span></span><span class="s11">if</span><span class="s1"> (cumulativeProfit &gt;= totalPlantCost) {</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">                        </span>monthsToPayback = m;</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">                        </span></span><span class="s11">break</span><span class="s1">;</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">                    </span>}</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">                </span>}</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">            </span>}</span></p>
-<p class="p9"><span class="s4"><span class="Apple-converted-space">            </span></span><span class="s11">let</span><span class="s4"> paybackText = </span><span class="s1">'Payback not achievable under current conditions.'</span><span class="s4">;</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">            </span></span><span class="s11">if</span><span class="s1"> (totalPlantCost === </span><span class="s14">0</span><span class="s1">) paybackText = </span><span class="s7">'N/A (No initial cost)'</span><span class="s1">;</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">            </span></span><span class="s11">else</span><span class="s1"> </span><span class="s11">if</span><span class="s1"> (monthsToPayback &gt; </span><span class="s14">0</span><span class="s1">) {</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">                </span></span><span class="s11">const</span><span class="s1"> paybackYears = </span><span class="s12">Math</span><span class="s1">.floor(monthsToPayback / </span><span class="s14">12</span><span class="s1">);</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">                </span></span><span class="s11">const</span><span class="s1"> paybackMonths = monthsToPayback % </span><span class="s14">12</span><span class="s1">;</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">                </span>paybackText = </span><span class="s7">`</span><span class="s1">${paybackYears}</span><span class="s7"> Years and </span><span class="s1">${paybackMonths}</span><span class="s7"> Months`</span><span class="s1">;</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">            </span>}</span></p>
-<p class="p8"><span class="s1"><span class="Apple-converted-space">            </span></span></p>
-<p class="p6"><span class="s4"><span class="Apple-converted-space">            </span></span><span class="s1">// Update UI for Long-Term Analysis</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">            </span>elements.paybackPeriod.textContent = paybackText;</span></p>
-<p class="p8"><span class="s10"></span><br></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">            </span></span><span class="s11">if</span><span class="s1">(loanPeriodTotalProfit &gt;= </span><span class="s14">0</span><span class="s1">){</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">                </span>elements.loanPeriodProfitLabel.textContent = </span><span class="s7">"Net Profit (During Loan Period)"</span><span class="s1">;</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">                </span>elements.loanPeriodProfit.textContent = formatCurrency(loanPeriodTotalProfit);</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">                </span>elements.loanPeriodProfit.className = </span><span class="s7">"text-xl font-bold text-green-700"</span><span class="s1">;</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">                </span>elements.loanPeriodProfitBox.classList.remove(</span><span class="s7">'bg-red-50'</span><span class="s1">);</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">                </span>elements.loanPeriodProfitBox.classList.add(</span><span class="s7">'bg-green-50'</span><span class="s1">);</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">            </span>} </span><span class="s11">else</span><span class="s1"> {</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">                </span>elements.loanPeriodProfitLabel.textContent = </span><span class="s7">"Total Out-of-Pocket (During Loan)"</span><span class="s1">;</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">                </span>elements.loanPeriodProfit.textContent = formatCurrency(</span><span class="s12">Math</span><span class="s1">.abs(loanPeriodTotalProfit));</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">                </span>elements.loanPeriodProfit.className = </span><span class="s7">"text-xl font-bold text-red-700"</span><span class="s1">;</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">                </span>elements.loanPeriodProfitBox.classList.remove(</span><span class="s7">'bg-green-50'</span><span class="s1">);</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">                </span>elements.loanPeriodProfitBox.classList.add(</span><span class="s7">'bg-red-50'</span><span class="s1">);</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">            </span>}</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">            </span>elements.loanPeriodProfitWords.textContent = numberToWords(loanPeriodTotalProfit);</span></p>
-<p class="p8"><span class="s1"><span class="Apple-converted-space">            </span></span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">            </span>elements.postLoanProfit.textContent = formatCurrency(postLoanTotalProfit);</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">            </span>elements.postLoanProfitWords.textContent = numberToWords(postLoanTotalProfit);</span></p>
-<p class="p8"><span class="s10"></span><br></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">            </span>elements.total25YearProfit.textContent = formatCurrency(total25YearProfitVal);</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">            </span>elements.total25YearProfitWords.textContent = numberToWords(total25YearProfitVal);</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">        </span>}</span></p>
-<p class="p8"><span class="s10"></span><br></p>
-<p class="p6"><span class="s4"><span class="Apple-converted-space">        </span></span><span class="s1">// --- Event Listeners ---</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">        </span>document.querySelectorAll(</span><span class="s7">'.accordion-toggle'</span><span class="s1">).forEach(button =&gt; {</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">            </span>button.addEventListener(</span><span class="s7">'click'</span><span class="s1">, () =&gt; {</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">                </span></span><span class="s11">const</span><span class="s1"> content = document.querySelector(button.dataset.target);</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">                </span></span><span class="s11">const</span><span class="s1"> icon = button.querySelector(</span><span class="s7">'svg'</span><span class="s1">);</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">                </span></span><span class="s11">const</span><span class="s1"> isOpening = !content.style.maxHeight;</span></p>
-<p class="p8"><span class="s1"><span class="Apple-converted-space">                </span></span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">                </span>document.querySelectorAll(</span><span class="s7">'.accordion-content'</span><span class="s1">).forEach(item =&gt; {</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">                    </span>item.style.maxHeight = </span><span class="s11">null</span><span class="s1">;</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">                    </span>item.previousElementSibling.querySelector(</span><span class="s7">'svg'</span><span class="s1">).classList.remove(</span><span class="s7">'rotate-180'</span><span class="s1">);</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">                </span>});</span></p>
-<p class="p8"><span class="s1"><span class="Apple-converted-space">                </span></span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">                </span></span><span class="s11">if</span><span class="s1"> (isOpening) {</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">                    </span>content.style.maxHeight = content.scrollHeight + </span><span class="s7">"px"</span><span class="s1">;</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">                    </span>icon.classList.add(</span><span class="s7">'rotate-180'</span><span class="s1">);</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">                </span>}</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">            </span>});</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">        </span>});</span></p>
-<p class="p8"><span class="s1"><span class="Apple-converted-space">        </span></span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">        </span></span><span class="s11">const</span><span class="s1"> firstAccordionButton = document.querySelector(</span><span class="s7">'.accordion-toggle'</span><span class="s1">);</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">        </span></span><span class="s11">if</span><span class="s1">(firstAccordionButton) firstAccordionButton.click();</span></p>
-<p class="p8"><span class="s10"></span><br></p>
-<p class="p6"><span class="s4"><span class="Apple-converted-space">        </span></span><span class="s1">// Specific listener for capacity to auto-update land</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">        </span>elements.capacity.addEventListener(</span><span class="s7">'input'</span><span class="s1">, handleCapacityChange);</span></p>
-<p class="p8"><span class="s1"><span class="Apple-converted-space">        </span></span></p>
-<p class="p6"><span class="s4"><span class="Apple-converted-space">        </span></span><span class="s1">// General listeners for all other inputs</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">        </span>allInputs.forEach(input =&gt; {</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">            </span></span><span class="s11">if</span><span class="s1">(input.id !== </span><span class="s7">'capacity'</span><span class="s1">) {</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">                </span>input.addEventListener(</span><span class="s7">'input'</span><span class="s1">, calculateViability)</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">            </span>}</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">        </span>});</span></p>
-<p class="p8"><span class="s10"></span><br></p>
-<p class="p6"><span class="s4"><span class="Apple-converted-space">        </span></span><span class="s1">// Initial calculation on page load</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">        </span>window.addEventListener(</span><span class="s7">'load'</span><span class="s1">, handleCapacityChange);</span></p>
-<p class="p2"><span class="s4"><span class="Apple-converted-space">    </span></span><span class="s3">&lt;/</span><span class="s1">script</span><span class="s3">&gt;</span></p>
-<p class="p2"><span class="s3">&lt;/</span><span class="s1">body</span><span class="s3">&gt;</span></p>
-<p class="p2"><span class="s3">&lt;/</span><span class="s1">html</span><span class="s3">&gt;</span></p>
-<p class="p8"><span class="s10"></span><br></p>
+<body class="bg-slate-100">
+    <div class="w-full max-w-5xl mx-auto p-4 md:p-8">
+        <div class="bg-white rounded-2xl shadow-2xl overflow-hidden">
+            <!-- Header -->
+            <div class="p-8 bg-gradient-to-br from-blue-600 to-indigo-700 text-white">
+                <h1 class="text-3xl md:text-4xl font-bold">Solar Plant Viability Calculator</h1>
+                <p class="mt-2 text-indigo-200">A comprehensive tool for project investment analysis.</p>
+            </div>
+
+            <div class="p-6 md:p-8 space-y-6">
+                <!-- Accordion Items -->
+                <!-- 1. Cost of Plant -->
+                <div class="border border-slate-200 rounded-xl">
+                    <button class="accordion-toggle w-full flex justify-between items-center p-5 text-left font-semibold text-lg text-slate-800" data-target="#cost-section">
+                        <span>1. Cost of Plant</span>
+                        <svg class="w-6 h-6 transform transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                    </button>
+                    <div id="cost-section" class="accordion-content">
+                        <div class="p-5 border-t border-slate-200 grid grid-cols-1 md:grid-cols-2 gap-x-8 gap-y-6">
+                            <div>
+                                <label for="capacity" class="text-sm font-medium text-gray-600">Total Plant Capacity (KW)</label>
+                                <input type="number" id="capacity" value="1000" class="mt-1 w-full p-3 rounded-lg border-gray-300 focus:ring-blue-500 focus:border-blue-500 shadow-sm">
+                            </div>
+                            <div>
+                                <label for="panel_cost" class="text-sm font-medium text-gray-600">Cost of Panels (per Watt)</label>
+                                <input type="number" id="panel_cost" value="25" class="mt-1 w-full p-3 rounded-lg border-gray-300 focus:ring-blue-500 focus:border-blue-500 shadow-sm">
+                            </div>
+                            <div>
+                                <label for="discount" class="text-sm font-medium text-gray-600">Total Discount on Panels (₹)</label>
+                                <input type="number" id="discount" value="0" class="mt-1 w-full p-3 rounded-lg border-gray-300 focus:ring-blue-500 focus:border-blue-500 shadow-sm">
+                            </div>
+                            <div>
+                                <label for="structure_cost" class="text-sm font-medium text-gray-600">Cost of Structure (if separate) (₹)</label>
+                                <input type="number" id="structure_cost" value="0" class="mt-1 w-full p-3 rounded-lg border-gray-300 focus:ring-blue-500 focus:border-blue-500 shadow-sm">
+                            </div>
+                            <div class="md:col-span-2 mt-4 p-4 bg-slate-50 rounded-lg">
+                                <h3 class="font-semibold text-slate-700">Total Plant Cost:</h3>
+                                <p id="total_cost" class="text-2xl font-bold text-blue-600">₹0.00</p>
+                                <p id="total_cost_words" class="text-sm text-slate-500 italic"></p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 2. Cost of Funding -->
+                <div class="border border-slate-200 rounded-xl">
+                    <button class="accordion-toggle w-full flex justify-between items-center p-5 text-left font-semibold text-lg text-slate-800" data-target="#funding-section">
+                        <span>2. Cost of Funding</span>
+                         <svg class="w-6 h-6 transform transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                    </button>
+                    <div id="funding-section" class="accordion-content">
+                         <div class="p-5 border-t border-slate-200 space-y-6">
+                            <div class="grid grid-cols-1 md:grid-cols-2 gap-x-8 gap-y-6">
+                                <div>
+                                    <label for="self_fund" class="text-sm font-medium text-gray-600">Self Fund (₹)</label>
+                                    <input type="number" id="self_fund" value="0" class="mt-1 w-full p-3 rounded-lg border-gray-300 focus:ring-blue-500 focus:border-blue-500 shadow-sm">
+                                </div>
+                                <div>
+                                    <label class="text-sm font-medium text-gray-600">Total Loan Amount (₹)</label>
+                                    <p id="loan_amount" class="mt-1 w-full p-3 rounded-lg bg-slate-100 text-slate-800 font-medium">₹0.00</p>
+                                    <p id="loan_amount_words" class="text-sm text-slate-500 italic"></p>
+                                </div>
+                            </div>
+                            <div>
+                                <label for="interest_rate" class="text-sm font-medium text-gray-600">Interest Rate (% p.a.) - <span id="interest_rate_val" class="font-bold">6.0%</span></label>
+                                <input type="range" id="interest_rate" min="5" max="15" step="0.1" value="6" class="mt-1 w-full h-2 bg-gray-200 rounded-lg appearance-none cursor-pointer">
+                            </div>
+                             <div>
+                                <label for="loan_tenure" class="text-sm font-medium text-gray-600">Loan Tenure (Years) - <span id="loan_tenure_val" class="font-bold">7 Years</span></label>
+                                <input type="range" id="loan_tenure" min="1" max="25" step="1" value="7" class="mt-1 w-full h-2 bg-gray-200 rounded-lg appearance-none cursor-pointer">
+                            </div>
+                            <div class="mt-4 p-4 bg-slate-50 rounded-lg">
+                                <h3 class="font-semibold text-slate-700">Monthly EMI on Loan:</h3>
+                                <p id="monthly_emi" class="text-2xl font-bold text-blue-600">₹0.00</p>
+                                <p id="monthly_emi_words" class="text-sm text-slate-500 italic"></p>
+                            </div>
+                         </div>
+                    </div>
+                </div>
+
+                <!-- 3. O&M Costs -->
+                 <div class="border border-slate-200 rounded-xl">
+                    <button class="accordion-toggle w-full flex justify-between items-center p-5 text-left font-semibold text-lg text-slate-800" data-target="#om-section">
+                        <span>3. Operation & Maintenance Costs</span>
+                         <svg class="w-6 h-6 transform transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                    </button>
+                    <div id="om-section" class="accordion-content">
+                        <div class="p-5 border-t border-slate-200 grid grid-cols-1 md:grid-cols-2 gap-x-8 gap-y-6">
+                            <div>
+                               <label for="required_land" class="text-sm font-medium text-gray-600">Required Land (Bigha)</label>
+                               <input type="number" id="required_land" value="6" class="mt-1 w-full p-3 rounded-lg border-gray-300 focus:ring-blue-500 focus:border-blue-500 shadow-sm">
+                            </div>
+                            <div>
+                               <label for="rental_cost_bigha" class="text-sm font-medium text-gray-600">Rental Cost (per Bigha/month) (₹)</label>
+                               <input type="number" id="rental_cost_bigha" value="2000" class="mt-1 w-full p-3 rounded-lg border-gray-300 focus:ring-blue-500 focus:border-blue-500 shadow-sm">
+                            </div>
+                            <div class="md:col-span-2 p-3 bg-slate-50 rounded-lg">
+                                <h4 class="font-medium text-slate-600">Total Monthly Rental Cost:</h4>
+                                <p id="total_rental_cost" class="font-bold text-slate-800">₹0.00</p>
+                                <p id="total_rental_cost_words" class="text-xs text-slate-500 italic"></p>
+                            </div>
+                            <div>
+                                <label for="security_guards" class="text-sm font-medium text-gray-600">No. of Security Guards</label>
+                                <input type="number" id="security_guards" value="3" class="mt-1 w-full p-3 rounded-lg border-gray-300 focus:ring-blue-500 focus:border-blue-500 shadow-sm">
+                            </div>
+                             <div>
+                                <label for="guard_salary" class="text-sm font-medium text-gray-600">Security Guard Salary (monthly) (₹)</label>
+                                <input type="number" id="guard_salary" value="15000" class="mt-1 w-full p-3 rounded-lg border-gray-300 focus:ring-blue-500 focus:border-blue-500 shadow-sm">
+                            </div>
+                             <div>
+                                <label for="engineers" class="text-sm font-medium text-gray-600">No. of Engineers</label>
+                                <input type="number" id="engineers" value="1" class="mt-1 w-full p-3 rounded-lg border-gray-300 focus:ring-blue-500 focus:border-blue-500 shadow-sm">
+                            </div>
+                             <div>
+                                <label for="engineer_salary" class="text-sm font-medium text-gray-600">Engineer Salary (monthly) (₹)</label>
+                                <input type="number" id="engineer_salary" value="15000" class="mt-1 w-full p-3 rounded-lg border-gray-300 focus:ring-blue-500 focus:border-blue-500 shadow-sm">
+                            </div>
+                             <div>
+                                <label for="misc_cost" class="text-sm font-medium text-gray-600">Other Miscellaneous Cost (monthly) (₹)</label>
+                                <input type="number" id="misc_cost" value="28000" class="mt-1 w-full p-3 rounded-lg border-gray-300 focus:ring-blue-500 focus:border-blue-500 shadow-sm">
+                            </div>
+                            <div class="md:col-span-2 mt-4 p-4 bg-blue-50 rounded-lg">
+                                <h3 class="font-semibold text-blue-800">Total Monthly O&M Cost:</h3>
+                                <p id="om_cost" class="text-2xl font-bold text-blue-700">₹0.00</p>
+                                <p id="om_cost_words" class="text-sm text-blue-600 italic"></p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 4. Generation & Income -->
+                <div class="border border-slate-200 rounded-xl">
+                     <button class="accordion-toggle w-full flex justify-between items-center p-5 text-left font-semibold text-lg text-slate-800" data-target="#income-section">
+                        <span>4. Generation & Income</span>
+                         <svg class="w-6 h-6 transform transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                    </button>
+                    <div id="income-section" class="accordion-content">
+                        <div class="p-5 border-t border-slate-200 grid grid-cols-1 md:grid-cols-2 gap-x-8 gap-y-6">
+                            <div>
+                                <label for="generation" class="text-sm font-medium text-gray-600">Generation (units per KW per day)</label>
+                                <input type="number" id="generation" value="4.5" step="0.1" class="mt-1 w-full p-3 rounded-lg border-gray-300 focus:ring-blue-500 focus:border-blue-500 shadow-sm">
+                            </div>
+                            <div>
+                                <label for="income_per_unit" class="text-sm font-medium text-gray-600">Income per Unit (₹)</label>
+                                <input type="number" id="income_per_unit" value="3.04" step="0.01" class="mt-1 w-full p-3 rounded-lg border-gray-300 focus:ring-blue-500 focus:border-blue-500 shadow-sm">
+                            </div>
+                            <div class="md:col-span-2 mt-4 p-4 bg-slate-50 rounded-lg grid grid-cols-1 md:grid-cols-2 gap-4">
+                                <div>
+                                    <h3 class="font-semibold text-slate-700">Total Monthly Income:</h3>
+                                    <p id="monthly_income" class="text-2xl font-bold text-green-600">₹0.00</p>
+                                    <p id="monthly_income_words" class="text-sm text-slate-500 italic"></p>
+                                </div>
+                                 <div>
+                                    <h3 class="font-semibold text-slate-700">Total Yearly Income:</h3>
+                                    <p id="yearly_income" class="text-2xl font-bold text-green-600">₹0.00</p>
+                                    <p id="yearly_income_words" class="text-sm text-slate-500 italic"></p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- 5. 25-Year Lifecycle Analysis -->
+                <div class="border border-slate-200 rounded-xl">
+                    <button class="accordion-toggle w-full flex justify-between items-center p-5 text-left font-semibold text-lg text-slate-800" data-target="#longterm-section">
+                        <span>5. 25-Year Lifecycle Analysis</span>
+                        <svg class="w-6 h-6 transform transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                    </button>
+                    <div id="longterm-section" class="accordion-content">
+                        <div class="p-5 border-t border-slate-200 space-y-4">
+                            <div>
+                                <h3 class="font-semibold text-slate-700">Simple Payback Period:</h3>
+                                <p id="payback_period" class="text-xl font-bold text-blue-600">Calculating...</p>
+                                <p class="text-xs text-slate-500 italic">Time to recover the total initial plant cost.</p>
+                            </div>
+                            <div class="grid grid-cols-1 md:grid-cols-2 gap-4 pt-4">
+                                <div id="loan_period_profit_box" class="p-4 bg-slate-50 rounded-lg">
+                                    <h3 id="loan_period_profit_label" class="font-semibold text-slate-700"></h3>
+                                     <p id="loan_period_profit" class="text-xl font-bold">₹0.00</p>
+                                     <p id="loan_period_profit_words" class="text-sm text-slate-500 italic"></p>
+                                </div>
+                                <div class="p-4 bg-slate-50 rounded-lg">
+                                    <h3 class="font-semibold text-slate-700">Net Profit (Post-Loan Period)</h3>
+                                    <p id="post_loan_profit" class="text-xl font-bold text-slate-800">₹0.00</p>
+                                    <p id="post_loan_profit_words" class="text-sm text-slate-500 italic"></p>
+                                </div>
+                            </div>
+                             <div class="mt-4 p-6 bg-green-50 rounded-lg text-center">
+                                <h3 class="font-semibold text-green-800">Total Estimated Profit over 25 Years</h3>
+                                <p id="total_25_year_profit" class="text-3xl font-bold text-green-700 mt-1">₹0.00</p>
+                                <p id="total_25_year_profit_words" class="text-sm text-green-600 italic"></p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
+                <!-- 6. Viability Test -->
+                <div class="pt-6">
+                    <div class="bg-gradient-to-br from-slate-800 to-slate-900 rounded-xl p-8 text-white shadow-lg">
+                        <h2 class="text-2xl font-bold text-center mb-6">6. Monthly Viability Test</h2>
+                        <div class="grid grid-cols-1 md:grid-cols-3 gap-6 text-center">
+                            <div>
+                                <p class="text-slate-400 text-sm">Monthly Income</p>
+                                <p id="summary_income" class="text-2xl font-bold text-green-400">₹0.00</p>
+                                <p id="summary_income_words" class="text-sm text-slate-400 italic"></p>
+                            </div>
+                             <div class="flex justify-center items-center text-3xl text-slate-500">-</div>
+                            <div class="grid grid-cols-1">
+                                <div>
+                                    <p class="text-slate-400 text-sm">Total Monthly Costs</p>
+                                    <p class="text-sm text-slate-400">(EMI + O&M)</p>
+                                    <p id="summary_costs" class="text-2xl font-bold text-red-400">₹0.00</p>
+                                    <p id="summary_costs_words" class="text-sm text-slate-400 italic"></p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="mt-8 pt-6 border-t border-slate-700 text-center">
+                            <p class="text-slate-300 text-lg">Overall Monthly Financial Position</p>
+                            <p id="viability_result" class="text-5xl font-extrabold mt-2">--</p>
+                             <p id="viability_result_words" class="text-lg text-slate-300 italic"></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <footer class="text-center mt-6 text-sm text-gray-500">
+            <p>This calculator provides an estimate for viability assessment. Consult with a financial advisor for detailed analysis.</p>
+        </footer>
+    </div>
+
+    <script>
+        // --- DOM Element Selection ---
+        const allInputs = Array.from(document.querySelectorAll('input'));
+        const elements = {
+            // Section 1
+            capacity: document.getElementById('capacity'),
+            panelCost: document.getElementById('panel_cost'),
+            discount: document.getElementById('discount'),
+            structureCost: document.getElementById('structure_cost'),
+            totalCost: document.getElementById('total_cost'),
+            totalCostWords: document.getElementById('total_cost_words'),
+            // Section 2
+            selfFund: document.getElementById('self_fund'),
+            loanAmount: document.getElementById('loan_amount'),
+            loanAmountWords: document.getElementById('loan_amount_words'),
+            interestRate: document.getElementById('interest_rate'),
+            interestRateVal: document.getElementById('interest_rate_val'),
+            loanTenure: document.getElementById('loan_tenure'),
+            loanTenureVal: document.getElementById('loan_tenure_val'),
+            monthlyEmi: document.getElementById('monthly_emi'),
+            monthlyEmiWords: document.getElementById('monthly_emi_words'),
+            // Section 3
+            requiredLand: document.getElementById('required_land'),
+            rentalCostBigha: document.getElementById('rental_cost_bigha'),
+            totalRentalCost: document.getElementById('total_rental_cost'),
+            totalRentalCostWords: document.getElementById('total_rental_cost_words'),
+            securityGuards: document.getElementById('security_guards'),
+            guardSalary: document.getElementById('guard_salary'),
+            engineers: document.getElementById('engineers'),
+            engineerSalary: document.getElementById('engineer_salary'),
+            miscCost: document.getElementById('misc_cost'),
+            omCost: document.getElementById('om_cost'),
+            omCostWords: document.getElementById('om_cost_words'),
+            // Section 4
+            generation: document.getElementById('generation'),
+            incomePerUnit: document.getElementById('income_per_unit'),
+            monthlyIncome: document.getElementById('monthly_income'),
+            monthlyIncomeWords: document.getElementById('monthly_income_words'),
+            yearlyIncome: document.getElementById('yearly_income'),
+            yearlyIncomeWords: document.getElementById('yearly_income_words'),
+            // Section 5
+            paybackPeriod: document.getElementById('payback_period'),
+            loanPeriodProfitBox: document.getElementById('loan_period_profit_box'),
+            loanPeriodProfitLabel: document.getElementById('loan_period_profit_label'),
+            loanPeriodProfit: document.getElementById('loan_period_profit'),
+            loanPeriodProfitWords: document.getElementById('loan_period_profit_words'),
+            postLoanProfit: document.getElementById('post_loan_profit'),
+            postLoanProfitWords: document.getElementById('post_loan_profit_words'),
+            total25YearProfit: document.getElementById('total_25_year_profit'),
+            total25YearProfitWords: document.getElementById('total_25_year_profit_words'),
+            // Section 6
+            summaryIncome: document.getElementById('summary_income'),
+            summaryIncomeWords: document.getElementById('summary_income_words'),
+            summaryCosts: document.getElementById('summary_costs'),
+            summaryCostsWords: document.getElementById('summary_costs_words'),
+            viabilityResult: document.getElementById('viability_result'),
+            viabilityResultWords: document.getElementById('viability_result_words'),
+        };
+
+        // --- Helper Functions ---
+        const formatCurrency = (value) => new Intl.NumberFormat('en-IN', { style: 'currency', currency: 'INR', maximumFractionDigits: 2 }).format(value);
+        
+        function numberToWords(num) {
+            if (isNaN(num)) return '';
+            const absNum = Math.abs(Math.floor(num));
+            if (absNum < 100000) return `(${absNum.toLocaleString('en-IN')})`;
+            if (absNum < 10000000) return `(${(absNum / 100000).toFixed(2)} Lakh)`;
+            return `(${(absNum / 10000000).toFixed(2)} Crore)`;
+        }
+
+        function handleCapacityChange() {
+             const capacityKW = parseFloat(elements.capacity.value) || 0;
+             // Auto-update land requirement: 6 Bigha per 1000 KW
+             const requiredLandVal = (capacityKW / 1000) * 6;
+             elements.requiredLand.value = requiredLandVal.toFixed(2);
+             calculateViability();
+        }
+
+        // --- Main Calculation Function ---
+        function calculateViability() {
+            // --- 1. Calculate Total Plant Cost ---
+            const capacityKW = parseFloat(elements.capacity.value) || 0;
+            const panelCostPerWatt = parseFloat(elements.panelCost.value) || 0;
+            const totalDiscount = parseFloat(elements.discount.value) || 0;
+            const structureCost = parseFloat(elements.structureCost.value) || 0;
+            const totalPanelCost = (capacityKW * 1000) * panelCostPerWatt;
+            const discountedPanelCost = Math.max(0, totalPanelCost - totalDiscount);
+            const totalPlantCost = discountedPanelCost + structureCost;
+            elements.totalCost.textContent = formatCurrency(totalPlantCost);
+            elements.totalCostWords.textContent = numberToWords(totalPlantCost);
+
+            // --- 2. Calculate Funding and EMI ---
+            const selfFundAmount = parseFloat(elements.selfFund.value) || 0;
+            const loanAmountVal = Math.max(0, totalPlantCost - selfFundAmount);
+            elements.loanAmount.textContent = formatCurrency(loanAmountVal);
+            elements.loanAmountWords.textContent = numberToWords(loanAmountVal);
+            const interestRateVal = parseFloat(elements.interestRate.value);
+            const loanTenureVal = parseInt(elements.loanTenure.value);
+            elements.interestRateVal.textContent = `${interestRateVal.toFixed(1)}%`;
+            elements.loanTenureVal.textContent = `${loanTenureVal} Years`;
+            const monthlyInterestRate = interestRateVal / 12 / 100;
+            const numberOfMonths = loanTenureVal * 12;
+            let monthlyEmiVal = 0;
+            if (loanAmountVal > 0 && monthlyInterestRate > 0 && numberOfMonths > 0) {
+                 monthlyEmiVal = loanAmountVal * monthlyInterestRate * Math.pow(1 + monthlyInterestRate, numberOfMonths) / (Math.pow(1 + monthlyInterestRate, numberOfMonths) - 1);
+            }
+            elements.monthlyEmi.textContent = formatCurrency(monthlyEmiVal);
+            elements.monthlyEmiWords.textContent = numberToWords(monthlyEmiVal);
+
+            // --- 3. Calculate O&M Costs ---
+            const monthlyRentalCost = (parseFloat(elements.rentalCostBigha.value) || 0) * (parseFloat(elements.requiredLand.value) || 0);
+            elements.totalRentalCost.textContent = formatCurrency(monthlyRentalCost);
+            elements.totalRentalCostWords.textContent = numberToWords(monthlyRentalCost);
+
+            const guardCost = (parseFloat(elements.securityGuards.value) || 0) * (parseFloat(elements.guardSalary.value) || 0);
+            const engineerCost = (parseFloat(elements.engineers.value) || 0) * (parseFloat(elements.engineerSalary.value) || 0);
+            const miscCost = parseFloat(elements.miscCost.value) || 0;
+            const totalOMCost = monthlyRentalCost + guardCost + engineerCost + miscCost;
+            elements.omCost.textContent = formatCurrency(totalOMCost);
+            elements.omCostWords.textContent = numberToWords(totalOMCost);
+
+            // --- 4. Calculate Generation & Income ---
+            const dailyGeneration = (parseFloat(elements.generation.value) || 0) * capacityKW;
+            const incomePerUnitVal = parseFloat(elements.incomePerUnit.value) || 0;
+            const monthlyIncomeVal = dailyGeneration * 30 * incomePerUnitVal;
+            const yearlyIncomeVal = monthlyIncomeVal * 12;
+            elements.monthlyIncome.textContent = formatCurrency(monthlyIncomeVal);
+            elements.monthlyIncomeWords.textContent = numberToWords(monthlyIncomeVal);
+            elements.yearlyIncome.textContent = formatCurrency(yearlyIncomeVal);
+            elements.yearlyIncomeWords.textContent = numberToWords(yearlyIncomeVal);
+
+
+            // --- 5. Calculate Monthly Viability ---
+            const totalMonthlyCosts = monthlyEmiVal + totalOMCost;
+            const netMonthlyPosition = monthlyIncomeVal - totalMonthlyCosts;
+            elements.summaryIncome.textContent = formatCurrency(monthlyIncomeVal);
+            elements.summaryIncomeWords.textContent = numberToWords(monthlyIncomeVal);
+            elements.summaryCosts.textContent = formatCurrency(totalMonthlyCosts);
+            elements.summaryCostsWords.textContent = numberToWords(totalMonthlyCosts);
+
+            if (netMonthlyPosition > 0) {
+                elements.viabilityResult.textContent = `Profit: ${formatCurrency(netMonthlyPosition)}`;
+                elements.viabilityResultWords.textContent = numberToWords(netMonthlyPosition);
+                elements.viabilityResult.className = 'text-5xl font-extrabold mt-2 text-green-400';
+            } else {
+                elements.viabilityResult.textContent = `Loss: ${formatCurrency(Math.abs(netMonthlyPosition))}`;
+                elements.viabilityResultWords.textContent = numberToWords(netMonthlyPosition);
+                elements.viabilityResult.className = 'text-5xl font-extrabold mt-2 text-red-400';
+            }
+
+            // --- 6. Calculate Long-Term Viability (25 Years) ---
+            const plantLifespanMonths = 25 * 12;
+            const postLoanMonths = Math.max(0, plantLifespanMonths - numberOfMonths);
+            const postLoanMonthlyProfit = monthlyIncomeVal - totalOMCost;
+            const loanPeriodTotalProfit = netMonthlyPosition * numberOfMonths;
+            const postLoanTotalProfit = postLoanMonthlyProfit * postLoanMonths;
+            const total25YearProfitVal = loanPeriodTotalProfit + postLoanTotalProfit;
+            
+            // Payback Period Calculation
+            let monthsToPayback = 0;
+            if (totalPlantCost > 0 && (netMonthlyPosition > 0 || (netMonthlyPosition <= 0 && postLoanMonthlyProfit > 0))) {
+                let cumulativeProfit = 0;
+                for (let m = 1; m <= plantLifespanMonths; m++) {
+                    cumulativeProfit += (m <= numberOfMonths) ? netMonthlyPosition : postLoanMonthlyProfit;
+                    if (cumulativeProfit >= totalPlantCost) {
+                        monthsToPayback = m;
+                        break;
+                    }
+                }
+            }
+            let paybackText = 'Payback not achievable under current conditions.';
+            if (totalPlantCost === 0) paybackText = 'N/A (No initial cost)';
+            else if (monthsToPayback > 0) {
+                const paybackYears = Math.floor(monthsToPayback / 12);
+                const paybackMonths = monthsToPayback % 12;
+                paybackText = `${paybackYears} Years and ${paybackMonths} Months`;
+            }
+            
+            // Update UI for Long-Term Analysis
+            elements.paybackPeriod.textContent = paybackText;
+
+            if(loanPeriodTotalProfit >= 0){
+                elements.loanPeriodProfitLabel.textContent = "Net Profit (During Loan Period)";
+                elements.loanPeriodProfit.textContent = formatCurrency(loanPeriodTotalProfit);
+                elements.loanPeriodProfit.className = "text-xl font-bold text-green-700";
+                elements.loanPeriodProfitBox.classList.remove('bg-red-50');
+                elements.loanPeriodProfitBox.classList.add('bg-green-50');
+            } else {
+                elements.loanPeriodProfitLabel.textContent = "Total Out-of-Pocket (During Loan)";
+                elements.loanPeriodProfit.textContent = formatCurrency(Math.abs(loanPeriodTotalProfit));
+                elements.loanPeriodProfit.className = "text-xl font-bold text-red-700";
+                elements.loanPeriodProfitBox.classList.remove('bg-green-50');
+                elements.loanPeriodProfitBox.classList.add('bg-red-50');
+            }
+            elements.loanPeriodProfitWords.textContent = numberToWords(loanPeriodTotalProfit);
+            
+            elements.postLoanProfit.textContent = formatCurrency(postLoanTotalProfit);
+            elements.postLoanProfitWords.textContent = numberToWords(postLoanTotalProfit);
+
+            elements.total25YearProfit.textContent = formatCurrency(total25YearProfitVal);
+            elements.total25YearProfitWords.textContent = numberToWords(total25YearProfitVal);
+        }
+
+        // --- Event Listeners ---
+        document.querySelectorAll('.accordion-toggle').forEach(button => {
+            button.addEventListener('click', () => {
+                const content = document.querySelector(button.dataset.target);
+                const icon = button.querySelector('svg');
+                const isOpening = !content.style.maxHeight;
+                
+                document.querySelectorAll('.accordion-content').forEach(item => {
+                    item.style.maxHeight = null;
+                    item.previousElementSibling.querySelector('svg').classList.remove('rotate-180');
+                });
+                
+                if (isOpening) {
+                    content.style.maxHeight = content.scrollHeight + "px";
+                    icon.classList.add('rotate-180');
+                }
+            });
+        });
+        
+        const firstAccordionButton = document.querySelector('.accordion-toggle');
+        if(firstAccordionButton) firstAccordionButton.click();
+
+        // Specific listener for capacity to auto-update land
+        elements.capacity.addEventListener('input', handleCapacityChange);
+        
+        // General listeners for all other inputs
+        allInputs.forEach(input => {
+            if(input.id !== 'capacity') {
+                input.addEventListener('input', calculateViability)
+            }
+        });
+
+        // Initial calculation on page load
+        window.addEventListener('load', handleCapacityChange);
+    </script>
 </body>
 </html>
